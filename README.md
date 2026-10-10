@@ -30,6 +30,111 @@ npm run add-cert   # interactive helper to add a certification
 
 To use a custom domain, add a `CNAME` file containing your domain and configure DNS per GitHub's docs.
 
+## Hacker view vs recruiter view
+
+The same site serves two audiences without two codebases.
+
+| | Hacker (default) | Recruiter |
+| --- | --- | --- |
+| Look | Dark, neon green, monospace | Light, clean, sans-serif |
+| Effects | Matrix rain, boot screen, typewriter, glitch, scanlines | None. Nothing animates, nothing is hidden |
+| Terminal | Available (`` ` `` key) | Still available, just less prominent |
+| Printing | Works, but busy | `Ctrl+P` gives a clean one-page résumé |
+| Best for | Engineers, security folks, first impressions | Non-technical recruiters, phones, skimming |
+
+Switch with the toggle in the nav or the terminal command `mode recruiter`. The choice is remembered in the browser.
+To decide what visitors see first, pick the link you share:
+
+- `https://<your-site>/` opens the hacker view.
+- `https://<your-site>/?mode=recruiter` opens the clean view (good for LinkedIn and job applications).
+
+## Terminal guide
+
+The terminal is a toy for technical visitors: a fake shell inside the page that answers with your real data.
+Everything it prints comes from `content/*.json`, so it updates itself when you update your content.
+
+**Opening it:** press the `` ` `` (backtick) key anywhere, click **terminal** in the nav, or **open terminal** in the hero.
+**Closing it:** `Esc`, the `×` button, the `` ` `` key again, or the `exit` command.
+
+### Commands
+
+| Command | What it does |
+| --- | --- |
+| `help` | Lists all public commands |
+| `whoami` | Name, title and tagline |
+| `about` | Bio, location and availability |
+| `skills` | Skills as ASCII progress bars, grouped by category |
+| `experience` | Work history with bullet points |
+| `projects` | Projects with stack, repo and demo links |
+| `certs` | Certifications with issue/expiry dates, credential IDs and verify links |
+| `education` | Schools and degrees |
+| `contact` | Email and social links (clickable) |
+| `resume` | Opens your résumé PDF (or explains it isn't uploaded yet) |
+| `open <section>` | Scrolls to a section, e.g. `open projects` |
+| `mode <hacker\|recruiter>` | Switches the view. `mode` alone prints the current one |
+| `matrix` | Toggles the matrix-rain background |
+| `fortune` | A random fun fact from `profile.json` → `funFacts` |
+| `banner` | Re-prints the ASCII welcome banner |
+| `ls` | Lists the "files" (sections) |
+| `cat <file>` | Prints a section, e.g. `cat about` |
+| `echo <text>` | Prints the text |
+| `date` | Current date and time |
+| `history` | Commands typed so far |
+| `clear` | Clears the screen (also `Ctrl+L`) |
+| `exit` | Closes the terminal |
+
+### Shortcuts
+
+| Key | Action |
+| --- | --- |
+| `Tab` | Autocomplete a command (lists matches if ambiguous) |
+| `↑` / `↓` | Browse command history |
+| `Ctrl+L` | Clear the screen |
+| `Esc` | Close the terminal |
+
+### Easter eggs
+
+These are hidden from `help`. They exist to make a technical visitor smile.
+
+| Command | Response |
+| --- | --- |
+| `sudo hire me` (or `hire`) | "✔ Request approved" with your email |
+| `sudo <anything else>` | "…is not in the sudoers file. This incident will be reported." Gets sassier on the third try |
+| `cat secrets.txt` | "Permission denied. Nice try though." |
+| `hack` | Fake "bypassing firewall" progress, ending with "Just kidding. This is a portfolio, not a target." |
+| `rm` | Refuses: "It's the only copy." |
+| `party` / `konami` | Rainbow party mode for 8 seconds |
+| `pwd`, `uname`, `neofetch` | Shell-flavoured replies |
+| **Konami code** on the page (↑ ↑ ↓ ↓ ← → ← → B A) | Party mode, no terminal needed |
+| **Browser DevTools console** | A greeting with a hint to open the terminal |
+| **Hover the name** in the hero | Glitch effect (hacker view only) |
+
+### Other special behaviour
+
+- **Boot screen** plays once per browser session. Any key or click skips it. It is skipped entirely in recruiter view and for users with "reduce motion" enabled.
+- **Status card** in the hero shows availability, location, verified cert count and an "uptime" counter since `LAUNCHED_AT` in `js/main.js`.
+- **Résumé button** hides itself until `assets/resume.pdf` exists, so there is never a broken link.
+- **Certification badges** are computed from `expires`: green "valid", amber "expires soon" (within 3 months), red "expired".
+- **Matrix rain** pauses when the tab is hidden, caps at ~20 fps, and is disabled for reduced-motion users and in recruiter view.
+- **`window.portfolio`** is exposed in DevTools: `portfolio.terminal.open()`, `portfolio.mode.set('recruiter')`, `portfolio.content`.
+
+### Adding your own command
+
+Open `js/terminal.js` and add an entry to the `commands` object:
+
+```js
+blog: {
+  desc: 'Links to my writing',          // shown in `help`; add `hidden: true` for an easter egg
+  run(args) {                           // args = words typed after the command
+    head('Blog');
+    print(`  ${link('https://example.com/blog')}`);
+  },
+},
+```
+
+Helpers available inside `run`: `line(text, cssClass)` for plain text, `print(html)` for HTML, `head(text)` for a cyan heading,
+`link(url, label)` for a clickable link, `scrollTo(id)` to jump to a section.
+
 ## Updating your details
 
 Everything is in `content/`:
