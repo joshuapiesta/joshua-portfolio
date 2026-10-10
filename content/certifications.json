@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Example Certificate (delete me)",
+    "issuer": "Example Academy",
+    "issued": "2025-01",
+    "expires": null,
+    "credentialId": "EX-0000-DEMO",
+    "verifyUrl": "https://example.com/verify/EX-0000-DEMO",
+    "image": "assets/certs/example-certificate.svg",
+    "skills": ["Demo", "Placeholder"]
+  }
+]

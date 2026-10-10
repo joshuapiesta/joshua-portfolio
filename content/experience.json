@@ -1,0 +1,31 @@
+[
+  {
+    "role": "Software Engineer",
+    "company": "Example Corp",
+    "companyUrl": "https://example.com",
+    "location": "Remote",
+    "start": "2024-01",
+    "end": null,
+    "summary": "Full-stack development on a customer-facing SaaS product, with a focus on reliability and security.",
+    "bullets": [
+      "Designed and shipped an internal audit-logging service used by 4 product teams.",
+      "Cut CI pipeline time by 40% by parallelising test suites and caching dependencies.",
+      "Led the fix for an IDOR vulnerability found in a third-party pentest and added regression tests."
+    ],
+    "tech": ["TypeScript", "Node.js", "PostgreSQL", "Docker", "GitHub Actions"]
+  },
+  {
+    "role": "Junior Developer",
+    "company": "Another Company",
+    "companyUrl": "",
+    "location": "Manila, PH",
+    "start": "2022-06",
+    "end": "2023-12",
+    "summary": "Built and maintained web applications for small-business clients.",
+    "bullets": [
+      "Delivered 8 client websites from brief to launch.",
+      "Introduced automated backups and uptime monitoring for all hosted sites."
+    ],
+    "tech": ["JavaScript", "PHP", "MySQL", "Linux"]
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "icon": "code",
+      "skills": [
+        { "name": "JavaScript / TypeScript", "level": 85 },
+        { "name": "Python", "level": 80 },
+        { "name": "Java", "level": 65 },
+        { "name": "SQL", "level": 75 },
+        { "name": "Bash", "level": 70 }
+      ]
+    },
+    {
+      "name": "Web & Backend",
+      "icon": "server",
+      "skills": [
+        { "name": "Node.js / Express", "level": 80 },
+        { "name": "React", "level": 75 },
+        { "name": "REST & GraphQL APIs", "level": 80 },
+        { "name": "PostgreSQL / MongoDB", "level": 70 }
+      ]
+    },
+    {
+      "name": "Security",
+      "icon": "shield",
+      "skills": [
+        { "name": "Web app pentesting (OWASP Top 10)", "level": 70 },
+        { "name": "Burp Suite", "level": 70 },
+        { "name": "Nmap / Wireshark", "level": 65 },
+        { "name": "Secure code review", "level": 70 },
+        { "name": "Linux hardening", "level": 60 }
+      ]
+    },
+    {
+      "name": "DevOps & Tools",
+      "icon": "terminal",
+      "skills": [
+        { "name": "Git / GitHub Actions", "level": 85 },
+        { "name": "Docker", "level": 70 },
+        { "name": "Linux", "level": 80 },
+        { "name": "AWS basics", "level": 55 }
+      ]
+    }
+  ],
+  "soft": [
+    "Clear written communication",
+    "Debugging under pressure",
+    "Mentoring juniors",
+    "Documentation people actually read"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Joshua Piesta",
+  "handle": "joshuapiesta",
+  "title": "Software Engineer & Security Enthusiast",
+  "tagline": "I build things, break things (ethically), and fix them better.",
+  "location": "Philippines",
+  "email": "joshuapiesta@gmail.com",
+  "availability": "Open to opportunities",
+  "avatar": "assets/img/avatar.svg",
+  "resume": "assets/resume.pdf",
+  "siteUrl": "https://joshuapiesta.github.io/joshua-portfolio/",
+  "bio": [
+    "I'm a software engineer with a security mindset. I enjoy building reliable systems and understanding how they fail, so I can make them stronger.",
+    "When I'm not shipping code I'm usually working through CTF challenges, reading write-ups, or automating something that annoyed me twice.",
+    "Replace these paragraphs with your own story. Two or three short paragraphs work best."
+  ],
+  "highlights": [
+    { "label": "Years of experience", "value": "3+" },
+    { "label": "Projects shipped", "value": "12" },
+    { "label": "Certifications", "value": "auto" },
+    { "label": "Coffee consumed", "value": "∞" }
+  ],
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/joshuapiesta", "icon": "github" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/joshuapiesta", "icon": "linkedin" },
+    { "label": "Email", "url": "mailto:joshuapiesta@gmail.com", "icon": "mail" }
+  ],
+  "funFacts": [
+    "My first program was a batch file that opened 100 notepad windows. My mum was not impressed.",
+    "I read RFCs for fun. Yes, really.",
+    "Favourite keyboard shortcut: Ctrl+Shift+I.",
+    "I name all my machines after mythological creatures."
+  ],
+  "seo": {
+    "description": "Portfolio of Joshua Piesta, software engineer with a security mindset. Projects, skills, experience and certifications.",
+    "keywords": ["Joshua Piesta", "software engineer", "cybersecurity", "portfolio", "developer", "Philippines"]
+  }
+}

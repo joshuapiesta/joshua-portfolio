@@ -1,0 +1,13 @@
+[
+  {
+    "school": "University of Example",
+    "degree": "Bachelor of Science",
+    "field": "Computer Science",
+    "start": "2018",
+    "end": "2022",
+    "details": [
+      "Thesis: Detecting credential-stuffing attacks with lightweight behavioural signals.",
+      "Dean's list, 2020 to 2022."
+    ]
+  }
+]

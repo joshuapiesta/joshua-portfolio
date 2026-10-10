@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Avatar placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1a14"/>
+      <stop offset="1" stop-color="#03140d"/>
+    </linearGradient>
+    <pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M12 0H0V12" fill="none" stroke="#00ff9c" stroke-opacity="0.12" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="240" height="240" rx="24" fill="url(#g)"/>
+  <rect width="240" height="240" rx="24" fill="url(#grid)"/>
+  <circle cx="120" cy="96" r="42" fill="none" stroke="#00ff9c" stroke-width="3"/>
+  <path d="M48 212c8-44 40-66 72-66s64 22 72 66" fill="none" stroke="#00ff9c" stroke-width="3" stroke-linecap="round"/>
+  <text x="120" y="110" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="34" font-weight="700" fill="#00ff9c">JP</text>
+</svg>

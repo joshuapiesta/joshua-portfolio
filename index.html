@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" data-mode="hacker">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joshua Piesta — Portfolio</title>
+  <meta name="description" content="Portfolio of Joshua Piesta: projects, skills, experience and certifications.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#050a0e">
+  <!-- Open Graph / social preview. The JS updates these from content/profile.json too. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Joshua Piesta — Portfolio">
+  <meta property="og:description" content="Projects, skills, experience and certifications.">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json" id="jsonld"></script>
+</head>
+<body>
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <!-- Boot overlay: shown once per session, skippable -->
+  <div id="boot" class="boot" aria-hidden="true">
+    <pre id="boot-log" class="boot__log"></pre>
+    <p class="boot__hint">press any key to skip</p>
+  </div>
+
+  <canvas id="matrix" class="matrix" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="nav" id="top">
+    <nav class="nav__inner" aria-label="Primary">
+      <a class="nav__brand" href="#top" id="nav-brand">&gt;_ <span data-bind="handle">joshuapiesta</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#experience">experience</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#certifications">certs</a></li>
+        <li><a href="#contact">contact</a></li>
+        <li class="nav__actions">
+          <button class="btn btn--ghost btn--sm" id="terminal-toggle" title="Open terminal (press `)">terminal</button>
+          <button class="mode-switch" id="mode-switch" role="switch" aria-checked="false" title="Switch between hacker and recruiter view">
+            <span class="mode-switch__opt" data-mode="hacker">hacker</span>
+            <span class="mode-switch__opt" data-mode="recruiter">recruiter</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="hero__pre"><span class="prompt">$</span> whoami</p>
+          <h1 class="hero__name glitch" data-bind="name" data-text="Joshua Piesta">Joshua Piesta</h1>
+          <p class="hero__title"><span class="prompt">$</span> cat role.txt<br><span class="typed" id="typed-title" data-bind="title"></span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="hero__tagline" data-bind="tagline"></p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#projects">view projects</a>
+            <a class="btn btn--ghost" id="resume-link" href="assets/resume.pdf" target="_blank" rel="noopener">download resume</a>
+            <button class="btn btn--ghost" id="hero-terminal">open terminal</button>
+          </div>
+          <ul class="hero__links" id="hero-links"></ul>
+        </div>
+        <div class="hero__card">
+          <div class="window">
+            <div class="window__bar"><span></span><span></span><span></span><em>status.sh</em></div>
+            <div class="window__body" id="status-card"></div>
+          </div>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#about" aria-label="Scroll to about section">▼</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section__title"><span class="prompt">#</span> about</h2>
+        <div class="about">
+          <figure class="about__avatar">
+            <img id="avatar" src="assets/img/avatar.svg" alt="" width="240" height="240">
+          </figure>
+          <div class="about__body">
+            <div id="bio"></div>
+            <ul class="stats" id="highlights"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section__title"><span class="prompt">#</span> skills</h2>
+        <div class="skills" id="skills-grid"></div>
+        <div class="soft" id="soft-skills"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section__title"><span class="prompt">#</span> experience</h2>
+        <ol class="timeline" id="experience-list"></ol>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section__title"><span class="prompt">#</span> projects</h2>
+        <div class="cards" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <h2 class="section__title"><span class="prompt">#</span> certifications</h2>
+        <div class="filters" id="cert-filters" role="group" aria-label="Filter certifications by issuer"></div>
+        <div class="cards cards--certs" id="certs-grid"></div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="container">
+        <h2 class="section__title"><span class="prompt">#</span> education</h2>
+        <ol class="timeline" id="education-list"></ol>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section__title"><span class="prompt">#</span> contact</h2>
+        <div class="contact">
+          <p class="contact__lead">Hiring, collaborating, or just want to talk shop? My inbox is open.</p>
+          <a class="btn btn--primary btn--lg" id="contact-email" href="mailto:">send an email</a>
+          <ul class="contact__links" id="contact-links"></ul>
+          <p class="contact__hint">Tip for the technical folks: open the terminal and run <code>contact</code>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> <span data-bind="name">Joshua Piesta</span>. Built with plain HTML, CSS and JS. No trackers.</p>
+      <p class="footer__hint">press <kbd>`</kbd> for terminal · try the Konami code</p>
+    </div>
+  </footer>
+
+  <!-- TERMINAL DRAWER -->
+  <section class="terminal" id="terminal" aria-label="Interactive terminal" hidden>
+    <div class="terminal__bar">
+      <span class="terminal__title">joshua@portfolio: ~</span>
+      <button class="terminal__close" id="terminal-close" aria-label="Close terminal">×</button>
+    </div>
+    <div class="terminal__out" id="terminal-out" aria-live="polite"></div>
+    <form class="terminal__form" id="terminal-form" autocomplete="off">
+      <label class="terminal__prompt" for="terminal-input">joshua@portfolio:~$</label>
+      <input class="terminal__input" id="terminal-input" type="text" spellcheck="false" autocapitalize="off" aria-label="Terminal command">
+    </form>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close">×</button>
+    <figure class="lightbox__figure">
+      <img id="lightbox-img" src="" alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Sentinel",
+    "tagline": "Lightweight log anomaly detector",
+    "description": "A CLI tool that tails server logs, learns normal request patterns and flags suspicious spikes, scans and auth failures in real time. Ships as a single binary.",
+    "tech": ["Go", "SQLite", "Grafana"],
+    "repo": "https://github.com/joshuapiesta/sentinel",
+    "demo": "",
+    "status": "active",
+    "featured": true
+  },
+  {
+    "name": "CTF Notebook",
+    "tagline": "Searchable write-ups and payload cheatsheets",
+    "description": "A static site generator for my capture-the-flag notes with tag search, syntax highlighting and an offline mode. Built so I stop re-googling the same payloads.",
+    "tech": ["Python", "Markdown", "JavaScript"],
+    "repo": "https://github.com/joshuapiesta/ctf-notebook",
+    "demo": "",
+    "status": "active",
+    "featured": true
+  },
+  {
+    "name": "This Portfolio",
+    "tagline": "Zero-dependency hacker-themed portfolio",
+    "description": "The site you are looking at. Pure HTML, CSS and JavaScript, content driven entirely by JSON files, with a working in-page terminal, a recruiter-friendly mode and automated GitHub Pages deploys.",
+    "tech": ["HTML", "CSS", "JavaScript", "GitHub Actions"],
+    "repo": "https://github.com/joshuapiesta/joshua-portfolio",
+    "demo": "",
+    "status": "active",
+    "featured": false
+  },
+  {
+    "name": "Budget Bot",
+    "tagline": "Telegram bot for expense tracking",
+    "description": "Parses natural-language messages like \"lunch 250\" into categorised expenses and sends a weekly summary chart.",
+    "tech": ["Python", "Telegram API", "PostgreSQL"],
+    "repo": "",
+    "demo": "",
+    "status": "archived",
+    "featured": false
+  }
+]
