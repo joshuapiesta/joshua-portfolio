@@ -1,22 +1,22 @@
 {
-  "name": "Joshua Piesta",
+  "name": "Joshua Bobb Piesta",
   "handle": "joshuapiesta",
-  "title": "Software Engineer & Security Enthusiast",
-  "tagline": "I build things, break things (ethically), and fix them better.",
-  "location": "Philippines",
+  "title": "Penetration Tester & Security Enthusiast",
+  "tagline": "I find the holes before attackers do. Ex-SOC analyst turned pentester, still learning every day.",
+  "location": "Cebu, Philippines",
   "email": "joshuapiesta@gmail.com",
   "availability": "Open to opportunities",
   "avatar": "assets/img/avatar.svg",
   "resume": "assets/resume.pdf",
   "siteUrl": "https://joshuapiesta.github.io/joshua-portfolio/",
   "bio": [
-    "I'm a software engineer with a security mindset. I enjoy building reliable systems and understanding how they fail, so I can make them stronger.",
-    "When I'm not shipping code I'm usually working through CTF challenges, reading write-ups, or automating something that annoyed me twice.",
-    "Replace these paragraphs with your own story. Two or three short paragraphs work best."
+    "I'm a Penetration Tester at UnitedHealth Group, where I run manual tests against web applications, APIs and mobile apps to find and exploit vulnerabilities before real attackers do. Before moving to the offensive side I spent two years as a SOC analyst, triaging alerts and hunting threats in Splunk and KQL, so I know what an attack looks like from both ends of the wire.",
+    "That blue-team background shapes how I test. I don't just report a finding, I explain its real-world impact and hand over a fix that actually works. My goal is to turn vulnerabilities into fortified strengths and leave every environment more secure than I found it.",
+    "I never stop learning. The certifications below are the proof, and the list keeps growing."
   ],
   "highlights": [
-    { "label": "Years of experience", "value": "3+" },
-    { "label": "Projects shipped", "value": "12" },
+    { "label": "Years in cybersecurity", "value": "3+" },
+    { "label": "Years in IT", "value": "4+" },
     { "label": "Certifications", "value": "auto" },
     { "label": "Coffee consumed", "value": "∞" }
   ],
@@ -26,13 +26,13 @@
     { "label": "Email", "url": "mailto:joshuapiesta@gmail.com", "icon": "mail" }
   ],
   "funFacts": [
-    "My first program was a batch file that opened 100 notepad windows. My mum was not impressed.",
-    "I read RFCs for fun. Yes, really.",
-    "Favourite keyboard shortcut: Ctrl+Shift+I.",
-    "I name all my machines after mythological creatures."
+    "I started on the blue team and switched to red. Now I know what both sides are thinking.",
+    "I read vulnerability write-ups the way other people read the news.",
+    "Favourite finding: the one the dev swore was impossible.",
+    "Yes, I have tried `sudo hire me` on my own site."
   ],
   "seo": {
-    "description": "Portfolio of Joshua Piesta, software engineer with a security mindset. Projects, skills, experience and certifications.",
-    "keywords": ["Joshua Piesta", "software engineer", "cybersecurity", "portfolio", "developer", "Philippines"]
+    "description": "Portfolio of Joshua Bobb Piesta, Penetration Tester and former SOC analyst. Web, API and mobile application security testing, certifications and projects.",
+    "keywords": ["Joshua Bobb Piesta", "Joshua Piesta", "penetration tester", "ethical hacker", "cybersecurity", "SOC analyst", "web application security", "portfolio", "Philippines"]
   }
 }

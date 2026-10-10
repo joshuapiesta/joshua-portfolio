@@ -1,52 +1,51 @@
 {
   "categories": [
     {
-      "name": "Languages",
-      "icon": "code",
-      "skills": [
-        { "name": "JavaScript / TypeScript", "level": 85 },
-        { "name": "Python", "level": 80 },
-        { "name": "Java", "level": 65 },
-        { "name": "SQL", "level": 75 },
-        { "name": "Bash", "level": 70 }
-      ]
-    },
-    {
-      "name": "Web & Backend",
-      "icon": "server",
-      "skills": [
-        { "name": "Node.js / Express", "level": 80 },
-        { "name": "React", "level": 75 },
-        { "name": "REST & GraphQL APIs", "level": 80 },
-        { "name": "PostgreSQL / MongoDB", "level": 70 }
-      ]
-    },
-    {
-      "name": "Security",
+      "name": "Offensive Security",
       "icon": "shield",
       "skills": [
-        { "name": "Web app pentesting (OWASP Top 10)", "level": 70 },
-        { "name": "Burp Suite", "level": 70 },
-        { "name": "Nmap / Wireshark", "level": 65 },
-        { "name": "Secure code review", "level": 70 },
-        { "name": "Linux hardening", "level": 60 }
+        { "name": "Web application pentesting (OWASP Top 10)", "level": 85 },
+        { "name": "API security testing", "level": 80 },
+        { "name": "Mobile application testing", "level": 70 },
+        { "name": "Burp Suite", "level": 85 },
+        { "name": "Nmap / Metasploit / Kali Linux", "level": 75 }
       ]
     },
     {
-      "name": "DevOps & Tools",
+      "name": "Defensive Security (SOC)",
+      "icon": "server",
+      "skills": [
+        { "name": "Splunk", "level": 80 },
+        { "name": "Kusto Query Language (KQL) / Microsoft Sentinel", "level": 80 },
+        { "name": "Alert triage & incident response", "level": 80 },
+        { "name": "Threat hunting", "level": 70 }
+      ]
+    },
+    {
+      "name": "Scripting & Automation",
+      "icon": "code",
+      "skills": [
+        { "name": "Python", "level": 70 },
+        { "name": "Bash", "level": 70 },
+        { "name": "PowerShell", "level": 60 },
+        { "name": "JavaScript", "level": 55 }
+      ]
+    },
+    {
+      "name": "Systems & Tools",
       "icon": "terminal",
       "skills": [
-        { "name": "Git / GitHub Actions", "level": 85 },
-        { "name": "Docker", "level": 70 },
         { "name": "Linux", "level": 80 },
-        { "name": "AWS basics", "level": 55 }
+        { "name": "Windows / Active Directory", "level": 70 },
+        { "name": "Networking (TCP/IP, Wireshark)", "level": 75 },
+        { "name": "Git / GitHub", "level": 65 }
       ]
     }
   ],
   "soft": [
-    "Clear written communication",
-    "Debugging under pressure",
-    "Mentoring juniors",
-    "Documentation people actually read"
+    "Clear, actionable reporting",
+    "Explaining risk to non-technical stakeholders",
+    "Calm under incident pressure",
+    "Continuous learner"
   ]
 }

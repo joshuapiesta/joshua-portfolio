@@ -64,6 +64,7 @@ if (experience) {
   (experience || []).forEach((x, i) => {
     require(x, ['role', 'company', 'start'], `experience[${i}]`);
     if (!isDate(x.start) || !isDate(x.end)) errors.push(`experience[${i}] (${x.role}): dates must be "YYYY-MM" or "YYYY", end may be null`);
+    if (x.type && !['Full-time', 'Part-time', 'Contract', 'Internship', 'Freelance'].includes(x.type)) warnings.push(`experience[${i}] (${x.role}): unusual type "${x.type}" (expected Full-time, Part-time, Contract, Internship or Freelance)`);
   });
 }
 

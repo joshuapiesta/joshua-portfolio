@@ -1,31 +1,93 @@
 [
   {
-    "role": "Software Engineer",
-    "company": "Example Corp",
-    "companyUrl": "https://example.com",
-    "location": "Remote",
-    "start": "2024-01",
+    "role": "Penetration Tester",
+    "company": "UnitedHealth Group",
+    "companyUrl": "https://www.unitedhealthgroup.com",
+    "type": "Full-time",
+    "location": "Philippines · Remote",
+    "start": "2025-09",
     "end": null,
-    "summary": "Full-stack development on a customer-facing SaaS product, with a focus on reliability and security.",
+    "summary": "Offensive security testing across the enterprise application portfolio.",
     "bullets": [
-      "Designed and shipped an internal audit-logging service used by 4 product teams.",
-      "Cut CI pipeline time by 40% by parallelising test suites and caching dependencies.",
-      "Led the fix for an IDOR vulnerability found in a third-party pentest and added regression tests."
+      "Perform manual penetration tests of web applications, APIs and mobile applications to discover and exploit vulnerabilities.",
+      "Write clear, reproducible reports with risk ratings and remediation guidance for development teams.",
+      "Retest fixed findings and partner with engineers to close the loop on remediation."
     ],
-    "tech": ["TypeScript", "Node.js", "PostgreSQL", "Docker", "GitHub Actions"]
+    "tech": ["Web App Security", "API Security", "Mobile App Security", "Burp Suite", "OWASP Top 10", "Ethical Hacking"]
   },
   {
-    "role": "Junior Developer",
-    "company": "Another Company",
-    "companyUrl": "",
-    "location": "Manila, PH",
-    "start": "2022-06",
-    "end": "2023-12",
-    "summary": "Built and maintained web applications for small-business clients.",
+    "role": "Breach, Attack & Readiness Testing – Ethical Hacker",
+    "company": "UnitedHealth Group",
+    "companyUrl": "https://www.unitedhealthgroup.com",
+    "type": "Contract",
+    "location": "Philippines · Remote",
+    "start": "2025-04",
+    "end": "2025-09",
+    "summary": "Six-month engagement on the breach and attack readiness team, which led to a full-time penetration testing role.",
     "bullets": [
-      "Delivered 8 client websites from brief to launch.",
-      "Introduced automated backups and uptime monitoring for all hosted sites."
+      "Performed manual penetration tests of web applications, APIs and mobile applications to discover and exploit vulnerabilities.",
+      "Validated detection and response readiness by simulating real-world attack techniques."
     ],
-    "tech": ["JavaScript", "PHP", "MySQL", "Linux"]
+    "tech": ["Web App Security", "Ethical Hacking", "Attack Simulation", "Burp Suite"]
+  },
+  {
+    "role": "Associate Cybersecurity Analyst (SOC Analyst)",
+    "company": "UnitedHealth Group",
+    "companyUrl": "https://www.unitedhealthgroup.com",
+    "type": "Full-time",
+    "location": "Philippines · Remote",
+    "start": "2023-08",
+    "end": "2025-09",
+    "summary": "Blue-team monitoring, triage and investigation in a large enterprise SOC.",
+    "bullets": [
+      "Monitored, triaged and investigated security alerts across endpoint, identity and cloud telemetry.",
+      "Built and tuned detection queries in KQL and Splunk to reduce noise and surface real threats.",
+      "Escalated and documented incidents with clear timelines and indicators of compromise."
+    ],
+    "tech": ["Splunk", "Kusto Query Language (KQL)", "Microsoft Sentinel", "Incident Response", "Threat Hunting"]
+  },
+  {
+    "role": "Junior Cybersecurity Analyst",
+    "company": "MySource Solutions",
+    "companyUrl": "",
+    "type": "Full-time",
+    "location": "Philippines · On-site",
+    "start": "2023-01",
+    "end": "2023-07",
+    "summary": "First security role: hands-on monitoring and vulnerability management for client environments.",
+    "bullets": [
+      "Supported security monitoring and first-line alert triage.",
+      "Assisted with vulnerability scanning, reporting and remediation tracking."
+    ],
+    "tech": ["Security Monitoring", "Vulnerability Management", "Networking"]
+  },
+  {
+    "role": "Information Technology Specialist",
+    "company": "Southwestern Medical Center",
+    "companyUrl": "",
+    "type": "Full-time",
+    "location": "Cebu, Philippines",
+    "start": "2022-05",
+    "end": "2022-12",
+    "summary": "IT operations and support for a healthcare environment.",
+    "bullets": [
+      "Maintained workstations, network connectivity and user accounts for hospital staff.",
+      "Handled hardware, software and access issues with an eye on data privacy."
+    ],
+    "tech": ["IT Support", "Networking", "Windows", "Active Directory"]
+  },
+  {
+    "role": "Information Technology Specialist",
+    "company": "Southwestern University PHINMA",
+    "companyUrl": "",
+    "type": "Internship",
+    "location": "Cebu, Philippines · On-site",
+    "start": "2021-11",
+    "end": "2022-05",
+    "summary": "Internship supporting campus IT infrastructure and end users.",
+    "bullets": [
+      "Provided technical support and assisted with network and system maintenance."
+    ],
+    "tech": ["IT Support", "Networking"]
   }
 ]

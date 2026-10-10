@@ -16,8 +16,10 @@ export function renderProfile(profile, certCount) {
 
   $('#avatar').src = profile.avatar || 'assets/img/avatar.svg';
   $('#avatar').alt = `${profile.name} avatar`;
-  $('#resume-link').href = profile.resume || '#';
-  $('#resume-link').hidden = !profile.hasResume;
+  document.querySelectorAll('.resume-link').forEach((a) => {
+    a.href = profile.resume || '#';
+    a.hidden = !profile.hasResume;
+  });
   $('#contact-email').href = `mailto:${profile.email}`;
   $('#year').textContent = new Date().getFullYear();
 
@@ -95,7 +97,7 @@ export function renderExperience(items) {
       <div class="tl__head">
         <h3>${esc(x.role)}</h3>
         <span class="tl__org">@ ${x.companyUrl ? `<a href="${esc(x.companyUrl)}" target="_blank" rel="noopener">${esc(x.company)}</a>` : esc(x.company)}</span>
-        <span class="tl__meta">${fmtDate(x.start)} – ${fmtDate(x.end)} · ${fmtDuration(x.start, x.end)}${x.location ? ` · ${esc(x.location)}` : ''}</span>
+        <span class="tl__meta">${x.type ? `${esc(x.type)} · ` : ''}${fmtDate(x.start)} – ${fmtDate(x.end)} · ${fmtDuration(x.start, x.end)}${x.location ? ` · ${esc(x.location)}` : ''}</span>
       </div>
       ${x.summary ? `<p class="tl__summary">${esc(x.summary)}</p>` : ''}
       ${x.bullets?.length ? `<ul class="tl__bullets">${x.bullets.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}

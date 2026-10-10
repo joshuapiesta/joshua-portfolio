@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Joshua Piesta — Portfolio</title>
-  <meta name="description" content="Portfolio of Joshua Piesta: projects, skills, experience and certifications.">
+  <title>Joshua Bobb Piesta — Portfolio</title>
+  <meta name="description" content="Portfolio of Joshua Bobb Piesta, Penetration Tester and former SOC analyst.">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#050a0e">
   <!-- Open Graph / social preview. The JS updates these from content/profile.json too. -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Joshua Piesta — Portfolio">
-  <meta property="og:description" content="Projects, skills, experience and certifications.">
+  <meta property="og:title" content="Joshua Bobb Piesta — Penetration Tester">
+  <meta property="og:description" content="Web, API and mobile application security testing. Experience, certifications and projects.">
   <meta property="og:image" content="assets/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -62,12 +62,12 @@
       <div class="container hero__grid">
         <div class="hero__text">
           <p class="hero__pre"><span class="prompt">$</span> whoami</p>
-          <h1 class="hero__name glitch" data-bind="name" data-text="Joshua Piesta">Joshua Piesta</h1>
+          <h1 class="hero__name glitch" data-bind="name" data-text="Joshua Bobb Piesta">Joshua Bobb Piesta</h1>
           <p class="hero__title"><span class="prompt">$</span> cat role.txt<br><span class="typed" id="typed-title" data-bind="title"></span><span class="cursor" aria-hidden="true"></span></p>
           <p class="hero__tagline" data-bind="tagline"></p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="#projects">view projects</a>
-            <a class="btn btn--ghost" id="resume-link" href="assets/resume.pdf" target="_blank" rel="noopener">download resume</a>
+            <a class="btn btn--ghost resume-link" href="assets/resume.pdf" download>download resume</a>
             <button class="btn btn--ghost" id="hero-terminal">open terminal</button>
           </div>
           <ul class="hero__links" id="hero-links"></ul>
@@ -146,7 +146,10 @@
         <h2 class="section__title"><span class="prompt">#</span> contact</h2>
         <div class="contact">
           <p class="contact__lead">Hiring, collaborating, or just want to talk shop? My inbox is open.</p>
-          <a class="btn btn--primary btn--lg" id="contact-email" href="mailto:">send an email</a>
+          <div class="contact__cta">
+            <a class="btn btn--primary btn--lg" id="contact-email" href="mailto:">send an email</a>
+            <a class="btn btn--ghost btn--lg resume-link" href="assets/resume.pdf" download>download resume</a>
+          </div>
           <ul class="contact__links" id="contact-links"></ul>
           <p class="contact__hint">Tip for the technical folks: open the terminal and run <code>contact</code>.</p>
         </div>
@@ -156,7 +159,7 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© <span id="year"></span> <span data-bind="name">Joshua Piesta</span>. Built with plain HTML, CSS and JS. No trackers.</p>
+      <p>© <span id="year"></span> <span data-bind="name">Joshua Bobb Piesta</span>. Built with plain HTML, CSS and JS. No trackers.</p>
       <p class="footer__hint">press <kbd>`</kbd> for terminal · try the Konami code</p>
     </div>
   </footer>

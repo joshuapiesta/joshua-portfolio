@@ -11,6 +11,8 @@ A personal portfolio with a hacker-terminal theme, built to impress both the hir
 - **SEO-ready**: meta tags, Open Graph image, JSON-LD Person schema. Accessible: keyboard navigation, reduced-motion support, skip link.
 - **Print = résumé.** `Ctrl+P` in recruiter view prints a clean one-pager.
 
+> **Not a developer?** Read [UPDATE-GUIDE.md](UPDATE-GUIDE.md). It walks through every common change using only the GitHub website.
+
 ## Quick start
 
 ```bash
@@ -143,7 +145,7 @@ Everything is in `content/`:
 | --- | --- |
 | `profile.json` | Name, title, tagline, bio, location, email, social links, highlight stats, fun facts, SEO description |
 | `skills.json` | Skill categories with 0–100 levels, plus soft skills |
-| `experience.json` | Work history (newest first). `end: null` means current role |
+| `experience.json` | Work history (newest first). `end: null` means current role; `type` is Full-time, Contract, Internship… |
 | `projects.json` | Projects. `featured: true` pins to the top; `status` is `active` or `archived` |
 | `certifications.json` | Certifications (see below) |
 | `education.json` | Schools and degrees |
@@ -153,7 +155,7 @@ Dates are `"YYYY-MM"` (or `"YYYY"`). Run `npm run check` after editing. It tells
 Other things to replace:
 
 - `assets/img/avatar.svg` → your photo (keep the filename or update `avatar` in `profile.json`).
-- `assets/resume.pdf` → your résumé. The "download resume" button hides itself until this file exists.
+- `assets/resume.pdf` → your résumé. The "download resume" buttons (hero and contact section) hide themselves until this file exists.
 - `assets/img/og.png` → the 1200×630 image shown when your link is shared on LinkedIn, Slack, etc.
 - `LAUNCHED_AT` in `js/main.js` → the date you went live (powers the "uptime" line in the hero card).
 - `index.html` `<title>` and the default `<meta>` tags (the JS overrides them at runtime, but crawlers that don't run JS see these).
