@@ -143,7 +143,7 @@ Everything is in `content/`:
 
 | File | What it controls |
 | --- | --- |
-| `profile.json` | Name, title, tagline, bio, location, email, social links, highlight stats, fun facts, SEO description |
+| `profile.json` | Name, title, tagline, bio, location, email, social links, highlight stats (`"value": "auto"` + `"since"` computes years; `"auto"` on a cert tile counts certs), fun facts, SEO description |
 | `skills.json` | Skill categories with 0–100 levels, plus soft skills |
 | `experience.json` | Work history (newest first). `end: null` means current role; `type` is Full-time, Contract, Internship… |
 | `projects.json` | Projects. `featured: true` pins to the top; `status` is `active` or `archived` |

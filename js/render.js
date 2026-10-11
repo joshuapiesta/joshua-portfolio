@@ -2,7 +2,7 @@
  * Renders every section from the loaded content.
  * Each function is pure-ish: takes data, writes HTML into a container.
  */
-import { $, esc, fmtDate, fmtDuration, certStatus, icon } from './utils.js';
+import { $, esc, fmtDate, fmtDuration, monthsBetween, certStatus, icon } from './utils.js';
 
 const tags = (list = [], cls = 'tag') => list.map((t) => `<span class="${cls}">${esc(t)}</span>`).join('');
 
@@ -60,9 +60,21 @@ export function renderProfile(profile, certCount) {
   // Bio + highlights.
   $('#bio').innerHTML = (profile.bio || []).map((p) => `<p>${esc(p)}</p>`).join('');
   $('#highlights').innerHTML = (profile.highlights || []).map((h) => {
-    const value = h.value === 'auto' && /cert/i.test(h.label) ? String(certCount) : h.value;
+    const value = autoHighlight(h, certCount);
     return `<li><strong data-count="${esc(value)}">${esc(value)}</strong><span>${esc(h.label)}</span></li>`;
   }).join('');
+}
+
+/**
+ * "auto" highlight values:
+ *  - with a "since": "YYYY-MM" field → whole years elapsed, e.g. "3+"
+ *  - with "cert" in the label → number of certifications
+ */
+function autoHighlight(h, certCount) {
+  if (h.value !== 'auto') return h.value;
+  if (h.since) return `${Math.floor(monthsBetween(h.since) / 12)}+`;
+  if (/cert/i.test(h.label)) return String(certCount);
+  return '';
 }
 
 function $$bind(key, value) {

@@ -110,7 +110,7 @@ When you leave a job, change its `"end": null` to the month you left, for exampl
 ## Change your bio, title or tagline
 
 Open `content/profile.json`. The fields are named in plain English: `"title"`, `"tagline"`, `"bio"` (a list of paragraphs), `"location"`, `"availability"`.
-The `"highlights"` block controls the four stat tiles under your bio. Leave `"value": "auto"` on the certifications tile and it counts itself.
+The `"highlights"` block controls the four stat tiles under your bio. Tiles with `"value": "auto"` update themselves: the certifications tile counts your certs, and a tile with a `"since": "2023-01"` date shows the years elapsed (for example "3+"). You never need to bump those numbers.
 
 ## Update your photo
 

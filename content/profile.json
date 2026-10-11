@@ -2,7 +2,7 @@
   "name": "Joshua Bobb Piesta",
   "handle": "joshuapiesta",
   "title": "Penetration Tester & Security Enthusiast",
-  "tagline": "I find the holes before attackers do. Ex-SOC analyst turned pentester, still learning every day.",
+  "tagline": "I find the holes before attackers do. Former SOC analyst, now a penetration tester, always learning.",
   "location": "Cebu, Philippines",
   "email": "joshuapiesta@gmail.com",
   "availability": "Open to opportunities",
@@ -10,20 +10,46 @@
   "resume": "assets/resume.pdf",
   "siteUrl": "https://joshuapiesta.github.io/joshua-portfolio/",
   "bio": [
-    "I'm a Penetration Tester at UnitedHealth Group, where I run manual tests against web applications, APIs and mobile apps to find and exploit vulnerabilities before real attackers do. Before moving to the offensive side I spent two years as a SOC analyst, triaging alerts and hunting threats in Splunk and KQL, so I know what an attack looks like from both ends of the wire.",
-    "That blue-team background shapes how I test. I don't just report a finding, I explain its real-world impact and hand over a fix that actually works. My goal is to turn vulnerabilities into fortified strengths and leave every environment more secure than I found it.",
-    "I never stop learning. The certifications below are the proof, and the list keeps growing."
+    "I'm a penetration tester with a SOC analyst background. I perform manual security testing of web applications, APIs and mobile apps, chaining real exploits to demonstrate business impact rather than just listing scanner output.",
+    "Having worked on the defensive side, triaging alerts and hunting threats in enterprise SIEM tooling, I understand attacks from both ends. That shapes how I deliver: clear, prioritised reports, remediation guidance developers can act on, and close collaboration with engineering and security teams so findings get fixed, not just filed.",
+    "I'm committed to continuous learning and proactive defense. The certifications below are the evidence, and the list keeps growing as the threat landscape changes."
   ],
   "highlights": [
-    { "label": "Years in cybersecurity", "value": "3+" },
-    { "label": "Years in IT", "value": "4+" },
-    { "label": "Certifications", "value": "auto" },
-    { "label": "Coffee consumed", "value": "∞" }
+    {
+      "label": "Years in cybersecurity",
+      "value": "auto",
+      "since": "2023-01"
+    },
+    {
+      "label": "Years in IT",
+      "value": "auto",
+      "since": "2021-11"
+    },
+    {
+      "label": "Certifications",
+      "value": "auto"
+    },
+    {
+      "label": "Coffee consumed",
+      "value": "∞"
+    }
   ],
   "links": [
-    { "label": "GitHub", "url": "https://github.com/joshuapiesta", "icon": "github" },
-    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/joshuapiesta", "icon": "linkedin" },
-    { "label": "Email", "url": "mailto:joshuapiesta@gmail.com", "icon": "mail" }
+    {
+      "label": "GitHub",
+      "url": "https://github.com/joshuapiesta",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/joshuapiesta",
+      "icon": "linkedin"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:joshuapiesta@gmail.com",
+      "icon": "mail"
+    }
   ],
   "funFacts": [
     "I started on the blue team and switched to red. Now I know what both sides are thinking.",
@@ -32,7 +58,17 @@
     "Yes, I have tried `sudo hire me` on my own site."
   ],
   "seo": {
-    "description": "Portfolio of Joshua Bobb Piesta, Penetration Tester and former SOC analyst. Web, API and mobile application security testing, certifications and projects.",
-    "keywords": ["Joshua Bobb Piesta", "Joshua Piesta", "penetration tester", "ethical hacker", "cybersecurity", "SOC analyst", "web application security", "portfolio", "Philippines"]
+    "description": "Portfolio of Joshua Bobb Piesta, penetration tester with a SOC analyst background. Manual web, API and mobile application security testing, certifications and projects.",
+    "keywords": [
+      "Joshua Bobb Piesta",
+      "Joshua Piesta",
+      "penetration tester",
+      "ethical hacker",
+      "cybersecurity",
+      "SOC analyst",
+      "web application security",
+      "portfolio",
+      "Philippines"
+    ]
   }
 }

@@ -41,6 +41,7 @@ if (profile) {
   require(profile, ['name', 'title', 'email', 'tagline'], 'profile');
   fileExists(profile.avatar, 'profile.avatar');
   if (profile.resume && !existsSync(join(ROOT, profile.resume))) warnings.push(`profile.resume: ${profile.resume} not found. The "download resume" button stays hidden until you add it.`);
+  (profile.highlights || []).forEach((h, i) => { if (h.since && !isDate(h.since)) errors.push(`profile.highlights[${i}]: "since" must be "YYYY-MM"`); });
   (profile.links || []).forEach((l, i) => { require(l, ['label', 'url'], `profile.links[${i}]`); if (!isUrl(l.url)) errors.push(`profile.links[${i}].url must start with http(s):// or mailto:`); });
 }
 
