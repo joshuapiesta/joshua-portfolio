@@ -21,7 +21,7 @@
     "issued": "2025-09",
     "expires": null,
     "credentialId": "HTBCERT-40272DB27D",
-    "verifyUrl": "",
+    "verifyUrl": "https://www.credly.com/badges/c5bbcaa2-3fd7-4184-bb3b-09b337017c65/public_url",
     "image": "assets/certs/htb-cwes.png",
     "skills": [
       "Web Exploitation",
@@ -50,7 +50,7 @@
     "issued": "2025-03",
     "expires": null,
     "credentialId": "67de18430daa26ec6d1d504a",
-    "verifyUrl": "",
+    "verifyUrl": "https://www.credly.com/badges/ad65a8a0-f56c-47da-8263-4e1d3862e585/public_url",
     "image": "assets/certs/thm-sal1.png",
     "skills": [
       "SOC Operations",
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "title": "Certified Ethical Hacker (CEH)",
+    "title": "Certified Ethical Hacker (CEHv12)",
     "issuer": "EC-Council",
     "issued": "2025-01",
     "expires": "2028-01",
@@ -93,7 +93,7 @@
     "issued": "2024-06",
     "expires": null,
     "credentialId": "217287547",
-    "verifyUrl": "",
+    "verifyUrl": "https://www.credly.com/badges/aa0d7c59-9306-46dc-986a-3c0e988af2f9/public_url",
     "image": "assets/certs/btl1.png",
     "skills": [
       "Phishing Analysis",
@@ -104,12 +104,12 @@
     ]
   },
   {
-    "title": "CompTIA Security+ ce",
+    "title": "CompTIA Security+",
     "issuer": "CompTIA",
     "issued": "2023-06",
     "expires": "2026-06",
     "credentialId": "COMP001022267804",
-    "verifyUrl": "",
+    "verifyUrl": "https://www.credly.com/badges/8313893f-3e31-4753-9cce-81ea1cbf1d11/public_url",
     "image": "assets/certs/comptia-security-plus.png",
     "skills": [
       "Security Fundamentals",
