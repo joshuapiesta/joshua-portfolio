@@ -1,25 +1,29 @@
 [
   {
-    "role": "Penetration Tester",
+    "role": "Penetration Tester (Cybersecurity Analyst)",
     "company": "Optum | UnitedHealthGroup",
     "companyUrl": "https://www.optum.com",
     "type": "Full-time",
     "location": "Philippines · Remote",
     "start": "2025-09",
     "end": null,
-    "summary": "Offensive security testing across the enterprise application portfolio.",
+    "summary": "Offensive security testing of corporate web applications, APIs and AI-driven assets, from exploitation through to verified remediation.",
     "bullets": [
-      "Perform manual penetration tests of web applications, APIs and mobile applications to discover and exploit vulnerabilities.",
-      "Write clear, reproducible reports with risk ratings and remediation guidance for development teams.",
-      "Retest fixed findings and partner with engineers to close the loop on remediation."
+      "Perform manual and automated penetration testing and retesting across corporate web applications and API architectures, eliminating structural vulnerabilities before deployment.",
+      "Analyse and exploit complex attack vectors, mapping findings to the OWASP Top 10 and defensive baselines to strengthen application security posture.",
+      "Author evidence-backed penetration test reports with working proof-of-concept exploits and risk ratings, accelerating engineering remediation workflows.",
+      "Drive cross-functional communication with application teams, shortening the remediation timeline for critical security issues.",
+      "Serve in high-stakes operational war rooms, resolving high-priority security concerns under time-sensitive conditions.",
+      "Completed an advanced AI Penetration Testing specialisation, extending coverage to Large Language Models and containerised AI-driven assets."
     ],
     "tech": [
       "Web App Security",
       "API Security",
-      "Mobile App Security",
-      "Burp Suite",
       "OWASP Top 10",
-      "Ethical Hacking"
+      "Burp Suite",
+      "AI / LLM Security",
+      "Proof-of-Concept Exploits",
+      "Risk Rating"
     ]
   },
   {
@@ -30,57 +34,61 @@
     "location": "Philippines · Remote",
     "start": "2025-04",
     "end": "2025-09",
-    "summary": "Six-month engagement on the breach and attack readiness team, which led to a full-time penetration testing role.",
+    "summary": "Six-month breach and attack readiness engagement that led directly to a full-time penetration testing role.",
     "bullets": [
       "Performed manual penetration tests of web applications, APIs and mobile applications to discover and exploit vulnerabilities.",
-      "Validated detection and response readiness by simulating real-world attack techniques."
+      "Simulated real-world attacker techniques to validate detection coverage and response readiness, feeding results back to the SOC."
     ],
     "tech": [
       "Web App Security",
       "Ethical Hacking",
       "Attack Simulation",
-      "Burp Suite"
+      "Burp Suite",
+      "Detection Validation"
     ]
   },
   {
-    "role": "Associate Cybersecurity Analyst (SOC Analyst)",
+    "role": "SOC Analyst (Associate Cybersecurity Analyst)",
     "company": "Optum | UnitedHealthGroup",
     "companyUrl": "https://www.optum.com",
     "type": "Full-time",
     "location": "Philippines · Remote",
     "start": "2023-08",
     "end": "2025-09",
-    "summary": "Blue-team monitoring, triage and investigation in a large enterprise SOC.",
+    "summary": "Blue-team monitoring, triage and escalation for an enterprise SOC protecting corporate networks and business partners.",
     "bullets": [
-      "Monitored, triaged and investigated security alerts across endpoint, identity and cloud telemetry.",
-      "Built and tuned detection queries in KQL and Splunk to reduce noise and surface real threats.",
-      "Escalated and documented incidents with clear timelines and indicators of compromise."
+      "Triaged high-volume security infrastructure alerts, safeguarding enterprise networks and strategic business partners from active threat actors.",
+      "Monitored multi-source telemetry spanning SIEM platforms, firewalls, IDS/IPS, EDR and honeypots, maintaining continuous visibility across the threat landscape.",
+      "Correlated and validated active threat indicators, leading strategic escalations and serving as a key triage resource during major incident response war rooms."
     ],
     "tech": [
       "Splunk",
-      "Kusto Query Language (KQL)",
-      "Microsoft Sentinel",
+      "Microsoft Sentinel (KQL)",
+      "EDR",
+      "IDS/IPS",
       "Incident Response",
       "Threat Hunting"
     ]
   },
   {
     "role": "Junior Cybersecurity Analyst",
-    "company": "MySource Solutions",
+    "company": "MySource Solutions / Critical Path Security",
     "companyUrl": "",
     "type": "Full-time",
     "location": "Philippines · On-site",
     "start": "2023-01",
     "end": "2023-07",
-    "summary": "First security role: hands-on monitoring and vulnerability management for client environments.",
+    "summary": "MSSP security operations: real-time monitoring and triage across multiple client environments.",
     "bullets": [
-      "Supported security monitoring and first-line alert triage.",
-      "Assisted with vulnerability scanning, reporting and remediation tracking."
+      "Managed real-time, multi-tenant alert monitoring queues, triaging threats across diverse MSSP client environments.",
+      "Identified and escalated critical security anomalies to senior engineers, reducing organisational risk and attacker dwell time for clients.",
+      "Drafted client-facing incident briefs detailing threat vectors and remediation guidance, improving external stakeholder response time."
     ],
     "tech": [
-      "Security Monitoring",
-      "Vulnerability Management",
-      "Networking"
+      "MSSP Operations",
+      "SIEM Monitoring",
+      "Alert Triage",
+      "Incident Reporting"
     ]
   },
   {
