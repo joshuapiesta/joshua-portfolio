@@ -1,94 +1,101 @@
 # How to update this site (no coding needed)
 
-Everything you'll ever want to change is a **text file in the `content` folder** or a **file you drop into the `assets` folder**.
-You can do all of it from the GitHub website in your browser. No installs, no terminal.
+Everything personal is either a **text file in the `content` folder** or a **file in the `assets` folder**. All of it can be changed from the GitHub website in your browser. No installs, no terminal.
 
-If you'd rather not touch files at all, open a Claude Code session on this repo and say what you want changed.
-
----
-
-## The golden rule
-
-Edit **only** these places:
-
-| Want to change… | Edit this |
-| --- | --- |
-| Name, job title, tagline, bio, location, email, social links, stats | `content/profile.json` |
-| Work experience | `content/experience.json` |
-| Certifications | `content/certifications.json` + drop the file in `assets/certs/` |
-| Skills and percentages | `content/skills.json` |
-| Projects (section is hidden while this list is empty `[]`) | `content/projects.json` |
-| Education | `content/education.json` |
-| Résumé | upload `assets/resume.pdf` |
-| Profile photo | upload `assets/img/avatar.jpg` and set `"avatar": "assets/img/avatar.jpg"` in `profile.json` |
-
-You never need to open `index.html`, the `css` folder or the `js` folder.
+The site rebuilds itself about a minute after every change you commit on the `main` branch.
 
 ---
 
-## How to edit a text file on GitHub
+## The two skills you need
 
-1. Open the repo on github.com and click into the `content` folder.
-2. Click the file (for example `profile.json`).
-3. Click the **pencil icon** (top right of the file).
-4. Make your change. Keep the quotes and commas exactly as they are. Only change the words between the quotes.
-5. Scroll down, click **Commit changes**, then **Commit changes** again.
+### Editing a text file on GitHub
 
-The site rebuilds itself in about a minute. If you made a typo that breaks the file, the build fails and the
-**Actions** tab shows a message like `experience[2]: missing "start"` telling you exactly what to fix. The live site stays as it was until you fix it.
+1. Open the file on GitHub (links for each file are below).
+2. Click the **pencil icon** (top right of the file box).
+3. Change the words **between the quotes**. Keep the quotes, commas and brackets exactly as they are.
+4. Scroll down, click the green **Commit changes…** button, then **Commit changes** again in the popup.
 
-### JSON in 30 seconds
+JSON in 30 seconds:
 
 ```json
-{ "label": "text goes here", "number": 85, "nothing": null, "list": ["one", "two"] }
+{ "text": "goes in quotes", "number": 85, "nothing": null, "list": ["one", "two"] }
 ```
 
-- Text always sits inside double quotes. Numbers and `null` don't.
 - Every item except the last one in a list or block ends with a comma.
-- `null` means "none", for example `"end": null` means "I still work here".
-- Dates are `"YYYY-MM"`, for example `"2025-09"`.
+- `null` means "none" (for example `"end": null` = "I still work here").
+- Dates are `"YYYY-MM"`, for example `"2026-03"`.
+
+### Uploading a file on GitHub
+
+1. Open the upload page for the right folder (links below).
+2. Drag the file in and wait for the green check.
+3. Scroll down, keep **"Commit directly to the main branch"** selected, click **Commit changes**.
+
+Uploading a file with the **same name** as an existing one replaces it.
 
 ---
 
-## Add a certification
+## Common changes
 
-1. Go to the `assets/certs` folder on GitHub → **Add file → Upload files** → drop in the image or PDF → **Commit changes**.
-   Use a simple filename with no spaces, like `comptia-security-plus.png`.
-2. Open `content/certifications.json`, click the pencil, and add a block like this inside the square brackets:
+### Add a new certificate
+
+Prepare the image first: a screenshot or PNG/JPG export of the certificate, roughly 600–800 px wide. **Do not upload the original PDF.** If the certificate prints a private verification code or personal details beyond your name, blur them before uploading.
+
+1. Upload the image here → https://github.com/joshuapiesta/joshua-portfolio/upload/main/assets/certs
+   Use a simple filename with no spaces, e.g. `oscp.png`.
+2. Edit the list → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/certifications.json
+   Paste this block right after the opening `[` at the top, keeping the comma after its `}`:
 
 ```json
 {
-  "title": "CompTIA Security+",
-  "issuer": "CompTIA",
-  "issued": "2025-03",
-  "expires": "2028-03",
-  "credentialId": "COMP001234567",
-  "verifyUrl": "https://www.certmetrics.com/comptia/public/verification.aspx",
-  "image": "assets/certs/comptia-security-plus.png",
-  "skills": ["Network security", "Threat analysis"]
-}
+  "title": "Certificate Name",
+  "issuer": "Issuer Name",
+  "issued": "2026-05",
+  "expires": null,
+  "credentialId": "ABC123",
+  "verifyUrl": "https://www.credly.com/badges/.../public_url",
+  "image": "assets/certs/oscp.png",
+  "skills": ["Skill one", "Skill two"]
+},
 ```
 
-3. If it isn't the last block in the list, put a comma after its closing `}`.
-4. Delete the sample `"Example Certificate (delete me)"` block the first time you do this.
-5. **Commit changes**.
+3. Commit. The card appears, the certification count on the About tile goes up, and the issuer filter chip is added automatically.
 
-Tips:
-- **Upload a screenshot, not the original PDF.** A PNG/JPG around 600 px wide is enough to recognise the certificate. Original high-resolution PDFs are easy to forge or pass off, and anything committed to a public repo stays in its history. If the certificate prints a private verification code or extra personal details (middle name, address), blur them before uploading.
-- Prefer a **verification link** (`"verifyUrl"`) from the issuer: Credly, Accredible (credential.net), Aspen, etc. A working verify button proves the cert better than a hosted file.
-- Passed an exam but don't have the certificate yet? Add `"status": "exam-passed"` and a `"note": "..."` line, and leave `"issued": null`.
-- `"expires": null` if it never expires.
-- `"credentialId"`, `"verifyUrl"` and `"skills"` can be left as `""` or `[]` if you don't have them.
-- Newest certs show first automatically. Expired ones get a red badge, ones expiring within 3 months get amber.
+Tips: `"expires": null` if it never expires. Leave `credentialId` or `verifyUrl` as `""` if you don't have them. The `image` must match the uploaded filename exactly, including capitals.
 
-## Replace your résumé
+### Change your job title, tagline or bio
 
-Go to the `assets` folder → **Add file → Upload files** → drop in your new PDF named exactly `resume.pdf` → **Commit changes**.
-The "download resume" buttons appear on the site automatically once the file exists, and update instantly when you replace it.
+Edit → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/profile.json
 
-## Add a new job
+- `"title"` is the line under your name and in the browser tab, e.g. `"Senior Penetration Tester"`.
+- `"tagline"` is the one-liner in the hero.
+- `"bio"` is a list of paragraphs. Each paragraph is one quoted string; keep the commas between them.
+- `"availability"` is the green status line in the hero card, e.g. `"Open to opportunities"` or `"Not looking right now"`.
+- `"location"` is shown in the hero card and the terminal.
 
-Open `content/experience.json` and add a block at the **top** of the list (newest first):
+### Change your email
+
+Edit → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/profile.json
+
+Change it in **two places** in that file: the `"email"` field near the top, and the `"url": "mailto:..."` entry inside `"links"`. Both must match.
+
+### Change your phone number
+
+The site **does not display a phone number** on purpose: a public phone number mostly attracts spam and spoofed recruiter calls. Contact is email and LinkedIn. The only place a phone number can appear is inside your résumé PDF. To change it there, update your résumé and upload the new PDF (next section).
+
+If you ever do want a phone number on the site, ask for a `phone` field to be added; it's a small change.
+
+### Replace your résumé
+
+Upload the new PDF, named exactly `Joshua_Piesta_Resume.pdf`, here → https://github.com/joshuapiesta/joshua-portfolio/upload/main/assets
+
+It replaces the old one. The "download resume" buttons keep working with no other change. Before uploading, decide whether you want your phone number in a public PDF, and double-check the email address printed on it.
+
+### Add a new job
+
+Edit → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/experience.json
+
+Paste at the **top** of the list, right after the opening `[`:
 
 ```json
 {
@@ -97,7 +104,7 @@ Open `content/experience.json` and add a block at the **top** of the list (newes
   "companyUrl": "https://company.com",
   "type": "Full-time",
   "location": "Philippines · Remote",
-  "start": "2026-01",
+  "start": "2026-06",
   "end": null,
   "summary": "One sentence about the role.",
   "bullets": [
@@ -108,22 +115,42 @@ Open `content/experience.json` and add a block at the **top** of the list (newes
 },
 ```
 
-When you leave a job, change its `"end": null` to the month you left, for example `"end": "2026-06"`.
+When you leave a job, change its `"end": null` to the month you left, e.g. `"end": "2026-05"`.
 
-## Change your bio, title or tagline
+### Update skills
 
-Open `content/profile.json`. The fields are named in plain English: `"title"`, `"tagline"`, `"bio"` (a list of paragraphs), `"location"`, `"availability"`.
-The `"highlights"` block controls the four stat tiles under your bio. Tiles with `"value": "auto"` update themselves: the certifications tile counts your certs, and a tile with a `"since": "2023-01"` date shows the years elapsed (for example "3+"). You never need to bump those numbers.
+Edit → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/skills.json
 
-## Update your photo
+Each skill is `{ "name": "Burp Suite", "level": 85 }` with a level from 0 to 100. Add, remove or reorder freely. The `"soft"` list at the bottom is the Soft Skills card.
 
-Upload a square photo (JPG or PNG, about 500×500) to `assets/img/`, then in `profile.json` set `"avatar": "assets/img/your-photo.jpg"`.
+### Change the stat tiles under your bio
+
+In `profile.json`, the `"highlights"` block. Tiles with `"value": "auto"` update themselves:
+- a tile with `"since": "2022-10"` shows the years elapsed (e.g. "4+") and ticks up each year
+- the certifications tile counts your certs
+
+You only ever edit the `"label"` text or the `"since"` date.
+
+### Change your photo
+
+Upload a square JPG or PNG (about 500×500) here → https://github.com/joshuapiesta/joshua-portfolio/upload/main/assets/img
+
+If you name it `joshua.jpg` it replaces the current photo with no other change. If you use a different name, update `"avatar"` in `profile.json` to match.
+
+### Add a social link
+
+In `profile.json`, inside `"links"`, add e.g. `{ "label": "Medium", "url": "https://medium.com/@joshuapiesta", "icon": "website" }`. Icons: `linkedin`, `mail`, `github`, `twitter`, `website`, `hackerrank`, `tryhackme`.
+
+### Update education
+
+Edit → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/education.json
 
 ---
 
 ## If something looks wrong
 
-- **Site didn't update:** check the **Actions** tab on GitHub. A red ✖ means a file has a typo. Click it to read the message.
-- **"Unexpected token" error:** a missing comma or quote in a JSON file. Compare your block with the examples above.
-- **Certificate image doesn't show:** the `"image"` path must match the uploaded filename exactly, including capital letters and extension.
-- Still stuck? Paste the error message into a Claude Code session on this repo and ask it to fix it.
+- **Site didn't update:** open the **Actions** tab. A red ✖ means a file has a typo. Click it to read a message like `certifications[2]: missing "issuer"`.
+- **"Unexpected token" error:** a missing comma or quote. Compare your block with the examples above.
+- **Image doesn't show:** the `"image"` path must match the uploaded filename exactly, including capital letters and extension.
+- **You pushed a file you shouldn't have** (an original PDF, something with private data): deleting it is not enough because Git keeps history. Keep the repo private if it isn't already and ask for help rewriting history.
+- Still stuck? Open a Claude Code session on this repo, paste the error, and ask it to fix it.

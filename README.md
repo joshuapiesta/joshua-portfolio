@@ -1,36 +1,81 @@
-# Joshua Piesta — Portfolio
+# Joshua Bobb Piesta — Portfolio
 
-A personal portfolio with a hacker-terminal theme, built to impress both the hiring team and the technical team.
+Personal portfolio with a hacker-terminal theme, built for both hiring teams and technical reviewers.
 
-- **Zero dependencies.** Plain HTML, CSS and JavaScript. No build step, nothing to install.
-- **Content lives in JSON.** Update your details by editing files in `content/`. You never touch HTML.
-- **Two views, one site.** `hacker` (matrix rain, boot screen, in-page terminal) and `recruiter` (clean, light, printable). Toggle in the nav, or share `?mode=recruiter` with recruiters directly.
-- **Interactive terminal.** Press `` ` `` anywhere. `help`, `skills`, `projects`, `certs`, `contact`… and a few easter eggs (`sudo hire me`, `hack`, the Konami code).
-- **Certifications gallery** with lightbox, issuer filters, expiry badges and verify links.
-- **Auto-deploys** to GitHub Pages on every push to `main`, after validating your JSON.
-- **SEO-ready**: meta tags, Open Graph image, JSON-LD Person schema. Accessible: keyboard navigation, reduced-motion support, skip link.
-- **Print = résumé.** `Ctrl+P` in recruiter view prints a clean one-pager.
+**Live site:** https://joshuapiesta.github.io/joshua-portfolio/
+**Recruiter-friendly link:** https://joshuapiesta.github.io/joshua-portfolio/?mode=recruiter
 
-> **Not a developer?** Read [UPDATE-GUIDE.md](UPDATE-GUIDE.md). It walks through every common change using only the GitHub website.
+> **Updating your details?** Read [UPDATE-GUIDE.md](UPDATE-GUIDE.md). It covers every common change (new certificate, new job, new title, email, photo, résumé) using only the GitHub website.
 
-## Quick start
+## What's in it
+
+- **Zero dependencies.** Plain HTML, CSS and JavaScript. No build step.
+- **Content lives in JSON.** Everything personal is in `content/`. You never edit HTML or JS to update the site.
+- **Two views, one site.** `hacker` (matrix rain, boot screen, in-page terminal) and `recruiter` (clean, light, printable). Toggle in the nav or share `?mode=recruiter`.
+- **Interactive terminal.** Press `` ` `` anywhere. Commands read your real data; a few easter eggs for the technical crowd.
+- **Certifications gallery** with thumbnails, lightbox, issuer filters, expiry badges and issuer verify links.
+- **Self-updating numbers.** The years-of-experience tiles and the certification count compute themselves.
+- **Hidden-when-empty sections.** Projects is hidden while `content/projects.json` is `[]`.
+- **Auto-deploy.** Every push to `main` validates the JSON, then publishes to GitHub Pages.
+- **SEO and accessibility.** Meta tags, Open Graph image, JSON-LD Person schema, keyboard navigation, reduced-motion support, print stylesheet.
+
+## Quick start (local preview)
 
 ```bash
-npm run dev        # preview at http://localhost:8080
-npm run check      # validate content JSON + referenced files
+npm run dev        # http://localhost:8080
+npm run check      # validate content JSON and referenced files
 npm run add-cert   # interactive helper to add a certification
 ```
 
-> Opening `index.html` directly from disk will not work, because browsers block `fetch()` on `file://` pages. Use `npm run dev` or any static server.
+Opening `index.html` straight from disk does not work, because browsers block `fetch()` on `file://` pages.
 
-## Deploy to GitHub Pages (one-time)
+## Deploying
 
-1. Push this repo to GitHub.
-2. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. Push to `main`. The workflow in `.github/workflows/deploy.yml` validates the content and publishes the site.
-4. Your site will be at `https://<username>.github.io/<repo>/`. Put that URL into `content/profile.json` → `siteUrl`.
+The workflow in `.github/workflows/deploy.yml` runs on every push to `main`. One-time setup: repo **Settings → Pages → Source: GitHub Actions**. The repo must be public for GitHub Pages on a free plan.
 
-To use a custom domain, add a `CNAME` file containing your domain and configure DNS per GitHub's docs.
+If a push contains invalid JSON, the deploy fails and the **Actions** tab shows the exact field to fix. The live site keeps the previous version until the fix is pushed.
+
+## Content files
+
+| File | Controls |
+| --- | --- |
+| `content/profile.json` | Name, title, tagline, bio, location, email, availability, social links, stat tiles, fun facts, SEO description |
+| `content/experience.json` | Jobs, newest first. `"end": null` = current role. `type` = Full-time / Contract / Internship |
+| `content/certifications.json` | Certifications. See the privacy rules below |
+| `content/skills.json` | Skill groups with 0–100 levels, plus the soft-skills card |
+| `content/education.json` | Schools and degrees |
+| `content/projects.json` | Projects. Leave as `[]` to hide the section |
+
+Dates are `"YYYY-MM"` or `"YYYY"`. Stat tiles with `"value": "auto"` compute themselves: add `"since": "YYYY-MM"` for a years counter, or put "cert" in the label for a certificate count.
+
+Other files you may replace: `assets/img/joshua.jpg` (photo, referenced by `avatar` in `profile.json`), `assets/Joshua_Piesta_Resume.pdf` (résumé, referenced by `resume`), `assets/img/og.png` (1200×630 social preview), and `LAUNCHED_AT` in `js/main.js` (powers the uptime counter).
+
+## Certificates: what to publish and what not to
+
+This repo is public. Treat certificate files accordingly.
+
+- **Publish a screenshot, not the original PDF.** A PNG or JPG about 600 px wide is enough to recognise the certificate and too small to clone cleanly. Original high-resolution PDFs are easy to forge or pass off as someone else's.
+- **Blur private details first.** Some certificates print a private verification code (CompTIA does) or extra personal data such as a middle name. Mask those before uploading.
+- **Prefer verification links.** Set `verifyUrl` to the issuer's public page (Credly, Accredible / credential.net, Aspen, AWS verification). A working "verify" button proves the credential better than a hosted file.
+- **Credential IDs printed on the certificate are fine to show.** Issuers design them to be shared; they are useless without the issuer's verification page.
+- **Anything committed stays in history.** If you ever push the wrong file, deleting it is not enough. Ask for help rewriting history before the next deploy.
+
+Entry format:
+
+```json
+{
+  "title": "CompTIA Security+",
+  "issuer": "CompTIA",
+  "issued": "2023-06",
+  "expires": "2026-06",
+  "credentialId": "COMP001022267804",
+  "verifyUrl": "https://www.credly.com/badges/<id>/public_url",
+  "image": "assets/certs/comptia-security-plus.png",
+  "skills": ["Security Fundamentals", "Threats & Vulnerabilities"]
+}
+```
+
+`"expires": null` means no expiry. Expired certs get a red badge, ones expiring within 3 months an amber one. A passed exam whose certificate is still pending can use `"status": "exam-passed"` with a `"note"` and `"issued"` set to the exam month.
 
 ## Hacker view vs recruiter view
 
@@ -137,67 +182,6 @@ blog: {
 Helpers available inside `run`: `line(text, cssClass)` for plain text, `print(html)` for HTML, `head(text)` for a cyan heading,
 `link(url, label)` for a clickable link, `scrollTo(id)` to jump to a section.
 
-## Updating your details
-
-Everything is in `content/`:
-
-| File | What it controls |
-| --- | --- |
-| `profile.json` | Name, title, tagline, bio, location, email, social links, highlight stats (`"value": "auto"` + `"since"` computes years; `"auto"` on a cert tile counts certs), fun facts, SEO description |
-| `skills.json` | Skill categories with 0–100 levels, plus soft skills |
-| `experience.json` | Work history (newest first). `end: null` means current role; `type` is Full-time, Contract, Internship… |
-| `projects.json` | Projects. `featured: true` pins to the top; `status` is `active` or `archived` |
-| `certifications.json` | Certifications (see below) |
-| `education.json` | Schools and degrees |
-
-Dates are `"YYYY-MM"` (or `"YYYY"`). Run `npm run check` after editing. It tells you exactly what is wrong if a file is invalid.
-
-Other things to replace:
-
-- `assets/img/avatar.svg` → your photo (keep the filename or update `avatar` in `profile.json`).
-- `assets/resume.pdf` → your résumé. The "download resume" buttons (hero and contact section) hide themselves until this file exists.
-- `assets/img/og.png` → the 1200×630 image shown when your link is shared on LinkedIn, Slack, etc.
-- `LAUNCHED_AT` in `js/main.js` → the date you went live (powers the "uptime" line in the hero card).
-- `index.html` `<title>` and the default `<meta>` tags (the JS overrides them at runtime, but crawlers that don't run JS see these).
-
-## Adding a certification
-
-**Option A, the helper script:**
-
-```bash
-npm run add-cert
-```
-
-It asks for the title, issuer, dates, credential ID, verify URL and the path to your certificate file, copies the file into `assets/certs/` and appends the entry to `content/certifications.json`.
-
-**Option B, by hand:**
-
-1. Drop the image or PDF into `assets/certs/` (PNG, JPG, WebP, SVG or PDF).
-2. Add an entry to `content/certifications.json`:
-
-```json
-{
-  "title": "CompTIA Security+",
-  "issuer": "CompTIA",
-  "issued": "2025-03",
-  "expires": "2028-03",
-  "credentialId": "COMP001234567",
-  "verifyUrl": "https://www.certmetrics.com/comptia/public/verification.aspx",
-  "image": "assets/certs/comptia-security-plus.png",
-  "skills": ["Network security", "Threat analysis"]
-}
-```
-
-3. `npm run check`, then commit and push.
-
-Notes:
-- `image` is a PNG/JPG thumbnail (opens in a lightbox). Upload a ~600 px screenshot rather than the original PDF, and blur any private verification codes first. `file` can link an original PDF, but on a public site that is not recommended.
-- `"status": "exam-passed"` with a `note` marks a passed exam whose certificate is still pending; `issued` may be `null`.
-- `expires: null` shows "No expiry". Expired certs get a red badge, certs expiring within 3 months get an amber badge.
-- Images open in a lightbox; PDFs open in a new tab.
-- The "Certifications" highlight in `profile.json` is set to `"auto"` and counts entries automatically.
-- Delete the sample "Example Certificate (delete me)" entry once you add a real one (the helper script does this for you).
-
 ## Project layout
 
 ```
@@ -212,19 +196,25 @@ js/effects.js           boot screen, typewriter, scroll reveal, nav, lightbox, K
 js/mode.js              hacker/recruiter switch (localStorage + ?mode=)
 js/utils.js             helpers and inline SVG icons
 content/*.json          YOUR DATA — the only files you need to edit
-assets/certs/           certificate images / PDFs
-assets/img/             avatar, favicon, Open Graph image
+assets/certs/           certificate thumbnails (PNG/JPG, ~600 px wide)
+assets/img/             photo, favicon, Open Graph image
 scripts/                dev server, validator, add-cert helper
-.github/workflows/      GitHub Pages deploy
+.github/workflows/      GitHub Pages deploy (validates content first)
 ```
 
 ## Customising
 
-- **Colours**: edit the tokens at the top of `css/styles.css` (`--accent`, `--bg`, …). Recruiter colours are under `html[data-mode="recruiter"]`.
-- **Terminal commands**: add an entry to the `commands` object in `js/terminal.js`. Each has a `desc` and a `run(args)`.
-- **Social icons**: `links[].icon` in `profile.json` accepts `github`, `linkedin`, `mail`, `twitter`, `website`, `hackerrank`, `tryhackme`. Anything else falls back to a globe.
-- **New section**: add a container in `index.html`, a JSON file in `content/`, register it in `js/data.js`, and write a `render*` function in `js/render.js`.
+- **Colours:** tokens at the top of `css/styles.css`. Recruiter colours are under `html[data-mode="recruiter"]`.
+- **Terminal commands:** add an entry to the `commands` object in `js/terminal.js`.
+- **Social icons:** `links[].icon` in `profile.json` accepts `linkedin`, `mail`, `github`, `twitter`, `website`, `hackerrank`, `tryhackme`. Unknown names fall back to a globe.
+- **New section:** add a container in `index.html`, a JSON file in `content/`, register it in `js/data.js`, and write a render function in `js/render.js`.
+
+## Security notes
+
+- No analytics, no trackers, no third-party scripts. The only external request is Google Fonts.
+- The site never displays a phone number by design. Contact is email and LinkedIn. The résumé PDF is the one place a phone number could appear; decide deliberately what goes in it.
+- Everything in this repo, including commit history, is public once Pages is enabled.
 
 ## License
 
-MIT. Fork it, make it yours.
+MIT.
