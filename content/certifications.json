@@ -1,5 +1,21 @@
 [
   {
+    "title": "Practical Network Penetration Tester (PNPT)",
+    "issuer": "TCM Security",
+    "issued": "2026-08",
+    "expires": null,
+    "credentialId": "191971077",
+    "verifyUrl": "https://www.credential.net/191971077",
+    "image": "assets/certs/pnpt.png",
+    "skills": [
+      "Network Pentesting",
+      "Active Directory",
+      "OSINT",
+      "Reporting",
+      "Live Debrief"
+    ]
+  },
+  {
     "title": "HTB Pro Labs: Zephyr",
     "issuer": "Hack The Box",
     "issued": "2026-05",
@@ -14,22 +30,6 @@
       "Pivoting",
       "Privilege Escalation",
       "Password Cracking"
-    ]
-  },
-  {
-    "title": "Practical Network Penetration Tester (PNPT)",
-    "issuer": "TCM Security",
-    "issued": "2026-08",
-    "expires": null,
-    "credentialId": "191971077",
-    "verifyUrl": "https://www.credential.net/191971077",
-    "image": "assets/certs/pnpt.png",
-    "skills": [
-      "Network Pentesting",
-      "Active Directory",
-      "OSINT",
-      "Reporting",
-      "Live Debrief"
     ]
   },
   {
@@ -121,17 +121,21 @@
     ]
   },
   {
-    "title": "CompTIA Security+",
-    "issuer": "CompTIA",
-    "issued": "2023-06",
-    "expires": "2026-06",
-    "credentialId": "COMP001022267804",
-    "verifyUrl": "https://www.credly.com/badges/8313893f-3e31-4753-9cce-81ea1cbf1d11/public_url",
-    "image": "assets/certs/comptia-security-plus.png",
+    "title": "Google Cybersecurity Professional Certificate V2",
+    "issuer": "Google",
+    "issued": "2023-12",
+    "expires": null,
+    "credentialId": "KRYQY5EBPXRJ",
+    "verifyUrl": "https://www.credly.com/badges/201336d5-f6f3-44f3-bdca-5483e97a2ce9/public_url",
+    "image": "assets/certs/google-cybersecurity.png",
     "skills": [
-      "Security Fundamentals",
-      "Threats & Vulnerabilities",
-      "Cryptography"
+      "Security Foundations",
+      "SIEM",
+      "IDS",
+      "Linux",
+      "SQL",
+      "Python",
+      "Incident Response"
     ]
   },
   {
@@ -152,21 +156,17 @@
     ]
   },
   {
-    "title": "Google Cybersecurity Professional Certificate V2",
-    "issuer": "Google",
-    "issued": null,
-    "expires": null,
-    "credentialId": "",
-    "verifyUrl": "https://www.credly.com/badges/201336d5-f6f3-44f3-bdca-5483e97a2ce9/public_url",
-    "image": "",
+    "title": "CompTIA Security+",
+    "issuer": "CompTIA",
+    "issued": "2023-06",
+    "expires": "2026-06",
+    "credentialId": "COMP001022267804",
+    "verifyUrl": "https://www.credly.com/badges/8313893f-3e31-4753-9cce-81ea1cbf1d11/public_url",
+    "image": "assets/certs/comptia-security-plus.png",
     "skills": [
-      "Security Foundations",
-      "SIEM",
-      "IDS",
-      "Linux",
-      "SQL",
-      "Python",
-      "Incident Response"
+      "Security Fundamentals",
+      "Threats & Vulnerabilities",
+      "Cryptography"
     ]
   }
 ]
