@@ -58,7 +58,7 @@ async function init() {
 
   // Little nod to the technical crowd.
   console.log('%c>_ Hey, curious one.', 'color:#00ff9c;font-size:16px;font-weight:bold');
-  console.log('%cTry `portfolio.terminal.open()` or press ` on the page. Source: github.com/' + content.profile.handle, 'color:#7fa996');
+  console.log('%cTry `portfolio.terminal.open()` or press ` on the page.', 'color:#7fa996');
 }
 
 init();
