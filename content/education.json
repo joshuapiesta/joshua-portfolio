@@ -1,13 +1,13 @@
 [
   {
-    "school": "University of Example",
+    "school": "Southwestern University - PHINMA",
     "degree": "Bachelor of Science",
-    "field": "Computer Science",
+    "field": "Information Technology",
     "start": "2018",
-    "end": "2022",
+    "end": "2023",
     "details": [
-      "Thesis: Detecting credential-stuffing attacks with lightweight behavioural signals.",
-      "Dean's list, 2020 to 2022."
+      "Academic Dean's Lister (A.Y. 2018–2021)",
+      "Working Scholar of Southwestern University - PHINMA"
     ]
   }
 ]
