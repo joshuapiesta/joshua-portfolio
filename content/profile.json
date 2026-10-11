@@ -41,6 +41,11 @@
       "icon": "linkedin"
     },
     {
+      "label": "Medium",
+      "url": "https://medium.com/@joshuapiesta",
+      "icon": "website"
+    },
+    {
       "label": "Email",
       "url": "mailto:joshuapiesta@gmail.com",
       "icon": "mail"
