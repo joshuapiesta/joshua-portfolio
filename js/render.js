@@ -131,6 +131,12 @@ export function renderEducation(items) {
 
 /* ---------- Projects ---------- */
 export function renderProjects(projects) {
+  // No projects? Hide the whole section plus its nav link and hero button.
+  if (!projects.length) {
+    $('#projects').hidden = true;
+    document.querySelectorAll('a[href="#projects"]').forEach((a) => { a.closest('li')?.remove(); a.remove(); });
+    return;
+  }
   const sorted = [...projects].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
   $('#projects-grid').innerHTML = sorted.map((p) => `
     <article class="card reveal ${p.featured ? 'card--featured' : ''}">

@@ -71,6 +71,7 @@ export function createTerminal({ content, mode, matrix, onParty }) {
     projects: {
       desc: 'Projects with links',
       run() {
+        if (!projects.length) return line('No projects listed. Check out `certs` instead.', 't-dim');
         projects.forEach((p) => {
           head(`${p.name}${p.featured ? ' ★' : ''}`);
           line(`  ${p.description}`);
@@ -122,7 +123,7 @@ export function createTerminal({ content, mode, matrix, onParty }) {
     },
     ls: {
       desc: 'List sections (and some files)',
-      run() { print(['about/', 'skills/', 'experience/', 'projects/', 'certifications/', 'education/', 'contact/', 'resume.pdf', 'secrets.txt'].map((f) => `<span class="${f.endsWith('/') ? 't-cmd' : ''}">${f}</span>`).join('  ')); },
+      run() { print(['about/', 'skills/', 'experience/', projects.length ? 'projects/' : null, 'certifications/', 'education/', 'contact/', 'resume.pdf', 'secrets.txt'].filter(Boolean).map((f) => `<span class="${f.endsWith('/') ? 't-cmd' : ''}">${f}</span>`).join('  ')); },
     },
     cat: {
       desc: 'cat <file> — read a file',

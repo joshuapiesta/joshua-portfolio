@@ -17,7 +17,7 @@ Edit **only** these places:
 | Work experience | `content/experience.json` |
 | Certifications | `content/certifications.json` + drop the file in `assets/certs/` |
 | Skills and percentages | `content/skills.json` |
-| Projects | `content/projects.json` |
+| Projects (section is hidden while this list is empty `[]`) | `content/projects.json` |
 | Education | `content/education.json` |
 | Résumé | upload `assets/resume.pdf` |
 | Profile photo | upload `assets/img/avatar.jpg` and set `"avatar": "assets/img/avatar.jpg"` in `profile.json` |
