@@ -74,6 +74,8 @@ The site rebuilds itself in about a minute. If you made a typo that breaks the f
 5. **Commit changes**.
 
 Tips:
+- Best result: upload **both** a PNG/JPG screenshot (as `"image"`, shown as the thumbnail and in the lightbox) and the original PDF (as `"file"`, linked as "open PDF"). Either one alone also works.
+- Passed an exam but don't have the certificate yet? Add `"status": "exam-passed"` and a `"note": "..."` line, and leave `"issued": null`.
 - `"expires": null` if it never expires.
 - `"credentialId"`, `"verifyUrl"` and `"skills"` can be left as `""` or `[]` if you don't have them.
 - Newest certs show first automatically. Expired ones get a red badge, ones expiring within 3 months get amber.

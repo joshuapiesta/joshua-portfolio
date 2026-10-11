@@ -86,11 +86,13 @@ if (certs) {
   if (!Array.isArray(certs)) errors.push('certifications.json must be an array');
   (certs || []).forEach((c, i) => {
     const where = `certifications[${i}] (${c.title || '?'})`;
-    require(c, ['title', 'issuer', 'issued'], where);
+    require(c, c.status === 'exam-passed' ? ['title', 'issuer'] : ['title', 'issuer', 'issued'], where);
+    if (c.status && c.status !== 'exam-passed') errors.push(`${where}: status must be "exam-passed" or omitted`);
+    fileExists(c.file, `${where}.file`);
     if (!isDate(c.issued) || !isDate(c.expires)) errors.push(`${where}: issued/expires must be "YYYY-MM" or "YYYY", expires may be null`);
     if (!isUrl(c.verifyUrl)) errors.push(`${where}: verifyUrl must be a full URL or empty`);
     fileExists(c.image, `${where}.image`);
-    if (!c.image) warnings.push(`${where}: no image. Card will show text only.`);
+    if (!c.image && !c.file) warnings.push(`${where}: no image or file. Card will show text only.`);
     if (/example-certificate/.test(c.image || '') || /delete me/i.test(c.title || '')) warnings.push(`${where}: this is the sample entry. Replace it with a real certificate.`);
   });
 }

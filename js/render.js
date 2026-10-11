@@ -162,34 +162,40 @@ export function renderProjects(projects) {
 export function renderCertifications(certs, { onOpenImage }) {
   const grid = $('#certs-grid');
   const filters = $('#cert-filters');
-  const sorted = [...certs].sort((a, b) => String(b.issued).localeCompare(String(a.issued)));
+  const sorted = [...certs].sort((a, b) => String(b.issued || '').localeCompare(String(a.issued || '')));
   const issuers = [...new Set(sorted.map((c) => c.issuer).filter(Boolean))];
 
-  const STATUS_LABEL = { active: 'valid', expiring: 'expires soon', expired: 'expired' };
+  const STATUS_LABEL = { active: 'valid', expiring: 'expires soon', expired: 'expired', 'exam-passed': 'exam passed' };
 
   const draw = (filter) => {
     const list = filter === 'all' ? sorted : sorted.filter((c) => c.issuer === filter);
     grid.innerHTML = list.map((c, i) => {
-      const isPdf = /\.pdf(\?|$)/i.test(c.image || '');
-      const status = certStatus(c.expires);
-      const thumb = !c.image
-        ? ''
-        : isPdf
-          ? `<a class="cert__thumb cert__thumb--pdf" href="${esc(c.image)}" target="_blank" rel="noopener">📄<small>open PDF</small></a>`
-          : `<button class="cert__thumb" type="button" data-cert="${i}" aria-label="View ${esc(c.title)} certificate"><img src="${esc(c.image)}" alt="${esc(c.title)}" loading="lazy"></button>`;
+      const status = c.status === 'exam-passed' ? 'exam-passed' : certStatus(c.expires);
+      const pdf = c.file || (/\.pdf(\?|$)/i.test(c.image || '') ? c.image : '');
+      const img = c.image && c.image !== pdf ? c.image : '';
+      const thumb = img
+        ? `<button class="cert__thumb" type="button" data-cert="${i}" aria-label="View ${esc(c.title)} certificate"><img src="${esc(img)}" alt="${esc(c.title)}" loading="lazy"></button>`
+        : pdf
+          ? `<a class="cert__thumb cert__thumb--pdf" href="${esc(pdf)}" target="_blank" rel="noopener">📄<small>open PDF</small></a>`
+          : '';
+      const dates = c.issued
+        ? `Issued ${fmtDate(c.issued)}${c.expires ? ` · Expires ${fmtDate(c.expires)}` : ' · No expiry'}`
+        : (c.expires ? `Expires ${fmtDate(c.expires)}` : '');
       return `
         <article class="card reveal" data-issuer="${esc(c.issuer)}">
           ${thumb}
           <h3>${esc(c.title)}</h3>
           <p class="card__tagline">${esc(c.issuer)} <span class="badge badge--${status}">${STATUS_LABEL[status]}</span></p>
           <p class="cert__meta">
-            Issued ${fmtDate(c.issued, '—')}${c.expires ? ` · Expires ${fmtDate(c.expires)}` : ' · No expiry'}
-            ${c.credentialId ? `<br>ID <code>${esc(c.credentialId)}</code>` : ''}
+            ${dates}
+            ${c.credentialId ? `${dates ? '<br>' : ''}ID <code>${esc(c.credentialId)}</code>` : ''}
           </p>
+          ${c.note ? `<p class="cert__note">${esc(c.note)}</p>` : ''}
           ${c.skills?.length ? `<div class="card__tags">${tags(c.skills)}</div>` : ''}
           <div class="card__links">
             ${c.verifyUrl ? `<a href="${esc(c.verifyUrl)}" target="_blank" rel="noopener">verify</a>` : ''}
-            ${c.image && !isPdf ? `<a href="${esc(c.image)}" target="_blank" rel="noopener">open image</a>` : ''}
+            ${pdf ? `<a href="${esc(pdf)}" target="_blank" rel="noopener">open PDF</a>` : ''}
+            ${img ? `<a href="${esc(img)}" target="_blank" rel="noopener">open image</a>` : ''}
           </div>
         </article>`;
     }).join('') || '<p class="empty">No certifications added yet. See README for how to add one.</p>';

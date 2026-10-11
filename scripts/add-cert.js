@@ -36,6 +36,7 @@ rl.close();
 if (!title || !issuer) { console.error('\n✖ Title and issuer are required.'); process.exit(1); }
 
 let image = '';
+let file = '';
 if (source) {
   const src = source.replace(/^['"]|['"]$/g, '');
   if (!existsSync(src)) { console.error(`\n✖ File not found: ${src}`); process.exit(1); }
@@ -43,8 +44,8 @@ if (source) {
   const ext = extname(src).toLowerCase();
   const name = `${slug(`${issuer}-${title}`)}${ext || extname(basename(src))}`;
   copyFileSync(src, join(CERTS_DIR, name));
-  image = `assets/certs/${name}`;
-  console.log(`\n  Copied → ${image}`);
+  if (ext === '.pdf') { file = `assets/certs/${name}`; console.log(`\n  Copied → ${file}  (tip: add a PNG screenshot of it as "image" for a thumbnail)`); }
+  else { image = `assets/certs/${name}`; console.log(`\n  Copied → ${image}`); }
 }
 
 const list = JSON.parse(readFileSync(JSON_PATH, 'utf8'));
@@ -52,7 +53,7 @@ const cleaned = list.filter((c) => !/delete me/i.test(c.title || '')); // drop t
 cleaned.push({
   title, issuer, issued,
   expires: expires || null,
-  credentialId, verifyUrl, image,
+  credentialId, verifyUrl, image, file,
   skills: skillsRaw ? skillsRaw.split(',').map((s) => s.trim()).filter(Boolean) : [],
 });
 writeFileSync(JSON_PATH, JSON.stringify(cleaned, null, 2) + '\n');

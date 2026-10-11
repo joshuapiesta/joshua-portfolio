@@ -87,7 +87,8 @@ export function createTerminal({ content, mode, matrix, onParty }) {
         if (!certifications.length) return line('No certifications listed yet.', 't-dim');
         certifications.forEach((c) => {
           head(c.title);
-          line(`  ${c.issuer} · issued ${fmtDate(c.issued, '—')}${c.expires ? ` · expires ${fmtDate(c.expires)}` : ''}`, 't-dim');
+          line(`  ${c.issuer}${c.issued ? ` · issued ${fmtDate(c.issued)}` : ''}${c.expires ? ` · expires ${fmtDate(c.expires)}` : ''}${c.status === 'exam-passed' ? ' · exam passed' : ''}`, 't-dim');
+          if (c.note) line(`  ${c.note}`, 't-dim');
           if (c.credentialId) line(`  id: ${c.credentialId}`, 't-dim');
           if (c.verifyUrl) print(`  verify: ${link(c.verifyUrl)}`);
         });

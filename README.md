@@ -191,6 +191,8 @@ It asks for the title, issuer, dates, credential ID, verify URL and the path to 
 3. `npm run check`, then commit and push.
 
 Notes:
+- `image` is a PNG/JPG thumbnail (opens in a lightbox); `file` is the original PDF (linked as "open PDF"). Use either or both.
+- `"status": "exam-passed"` with a `note` marks a passed exam whose certificate is still pending; `issued` may be `null`.
 - `expires: null` shows "No expiry". Expired certs get a red badge, certs expiring within 3 months get an amber badge.
 - Images open in a lightbox; PDFs open in a new tab.
 - The "Certifications" highlight in `profile.json` is set to `"auto"` and counts entries automatically.
