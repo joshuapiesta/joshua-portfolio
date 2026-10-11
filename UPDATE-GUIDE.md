@@ -74,7 +74,8 @@ The site rebuilds itself in about a minute. If you made a typo that breaks the f
 5. **Commit changes**.
 
 Tips:
-- Best result: upload **both** a PNG/JPG screenshot (as `"image"`, shown as the thumbnail and in the lightbox) and the original PDF (as `"file"`, linked as "open PDF"). Either one alone also works.
+- **Upload a screenshot, not the original PDF.** A PNG/JPG around 600 px wide is enough to recognise the certificate. Original high-resolution PDFs are easy to forge or pass off, and anything committed to a public repo stays in its history. If the certificate prints a private verification code or extra personal details (middle name, address), blur them before uploading.
+- Prefer a **verification link** (`"verifyUrl"`) from the issuer: Credly, Accredible (credential.net), Aspen, etc. A working verify button proves the cert better than a hosted file.
 - Passed an exam but don't have the certificate yet? Add `"status": "exam-passed"` and a `"note": "..."` line, and leave `"issued": null`.
 - `"expires": null` if it never expires.
 - `"credentialId"`, `"verifyUrl"` and `"skills"` can be left as `""` or `[]` if you don't have them.

@@ -5,10 +5,15 @@
     "issued": "2026-08",
     "expires": null,
     "credentialId": "191971077",
-    "verifyUrl": "",
+    "verifyUrl": "https://www.credential.net/191971077",
     "image": "assets/certs/pnpt.png",
-    "file": "assets/certs/pnpt.pdf",
-    "skills": ["Network Pentesting", "Active Directory", "OSINT", "Reporting", "Live Debrief"]
+    "skills": [
+      "Network Pentesting",
+      "Active Directory",
+      "OSINT",
+      "Reporting",
+      "Live Debrief"
+    ]
   },
   {
     "title": "HTB Certified Web Exploitation Specialist (CWES)",
@@ -18,8 +23,12 @@
     "credentialId": "HTBCERT-40272DB27D",
     "verifyUrl": "",
     "image": "assets/certs/htb-cwes.png",
-    "file": "assets/certs/htb-cwes.pdf",
-    "skills": ["Web Exploitation", "Bug Bounty", "OWASP Top 10", "Burp Suite"]
+    "skills": [
+      "Web Exploitation",
+      "Bug Bounty",
+      "OWASP Top 10",
+      "Burp Suite"
+    ]
   },
   {
     "title": "Practical Web Pentest Associate (PWPA)",
@@ -27,10 +36,13 @@
     "issued": "2025-06",
     "expires": null,
     "credentialId": "152671130",
-    "verifyUrl": "",
+    "verifyUrl": "https://www.credential.net/152671130",
     "image": "assets/certs/pwpa.png",
-    "file": "assets/certs/pwpa.pdf",
-    "skills": ["Web App Pentesting", "OWASP Top 10", "Reporting"]
+    "skills": [
+      "Web App Pentesting",
+      "OWASP Top 10",
+      "Reporting"
+    ]
   },
   {
     "title": "Security Analyst Level 1 (SAL1)",
@@ -40,8 +52,12 @@
     "credentialId": "67de18430daa26ec6d1d504a",
     "verifyUrl": "",
     "image": "assets/certs/thm-sal1.png",
-    "file": "assets/certs/thm-sal1.pdf",
-    "skills": ["SOC Operations", "Alert Triage", "SIEM", "Incident Response"]
+    "skills": [
+      "SOC Operations",
+      "Alert Triage",
+      "SIEM",
+      "Incident Response"
+    ]
   },
   {
     "title": "Certified Ethical Hacker (CEH)",
@@ -51,8 +67,11 @@
     "credentialId": "ECC8465713092",
     "verifyUrl": "https://aspen.eccouncil.org/Verify",
     "image": "assets/certs/ceh.png",
-    "file": "assets/certs/ceh.pdf",
-    "skills": ["Ethical Hacking", "Vulnerability Analysis", "Attack Vectors"]
+    "skills": [
+      "Ethical Hacking",
+      "Vulnerability Analysis",
+      "Attack Vectors"
+    ]
   },
   {
     "title": "AWS Certified Cloud Practitioner",
@@ -62,8 +81,11 @@
     "credentialId": "d8a9dc1793614ef9a4e23209f9336680",
     "verifyUrl": "https://aws.amazon.com/verification",
     "image": "assets/certs/aws-cloud-practitioner.png",
-    "file": "assets/certs/aws-cloud-practitioner.pdf",
-    "skills": ["Cloud Fundamentals", "AWS", "Shared Responsibility Model"]
+    "skills": [
+      "Cloud Fundamentals",
+      "AWS",
+      "Shared Responsibility Model"
+    ]
   },
   {
     "title": "Blue Team Level 1 (BTL1)",
@@ -73,8 +95,13 @@
     "credentialId": "217287547",
     "verifyUrl": "",
     "image": "assets/certs/btl1.png",
-    "file": "assets/certs/btl1.pdf",
-    "skills": ["Phishing Analysis", "Threat Intelligence", "Digital Forensics", "SIEM", "Incident Response"]
+    "skills": [
+      "Phishing Analysis",
+      "Threat Intelligence",
+      "Digital Forensics",
+      "SIEM",
+      "Incident Response"
+    ]
   },
   {
     "title": "CompTIA Security+ ce",
@@ -82,10 +109,13 @@
     "issued": "2023-06",
     "expires": "2026-06",
     "credentialId": "COMP001022267804",
-    "verifyUrl": "http://verify.CompTIA.org",
+    "verifyUrl": "",
     "image": "assets/certs/comptia-security-plus.png",
-    "file": "assets/certs/comptia-security-plus.pdf",
-    "skills": ["Security Fundamentals", "Threats & Vulnerabilities", "Cryptography"]
+    "skills": [
+      "Security Fundamentals",
+      "Threats & Vulnerabilities",
+      "Cryptography"
+    ]
   },
   {
     "title": "Certified in Cybersecurity (CC)",
@@ -97,7 +127,11 @@
     "credentialId": "",
     "verifyUrl": "",
     "image": "",
-    "file": "",
-    "skills": ["Security Principles", "Access Control", "Network Security", "Incident Response"]
+    "skills": [
+      "Security Principles",
+      "Access Control",
+      "Network Security",
+      "Incident Response"
+    ]
   }
 ]
