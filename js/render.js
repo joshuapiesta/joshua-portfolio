@@ -99,7 +99,14 @@ export function renderSkills(skills) {
           <div class="bar" role="progressbar" aria-valuenow="${Number(s.level) || 0}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(s.name)}"><i style="--w:${Number(s.level) || 0}%"></i></div>
         </div>`).join('')}
     </div>`).join('');
-  $('#soft-skills').innerHTML = tags(skills.soft, 'tag tag--accent');
+  // Soft skills get their own card in the same grid, as a checklist instead of bars.
+  if (skills.soft?.length) {
+    $('#skills-grid').insertAdjacentHTML('beforeend', `
+      <div class="skill-group skill-group--soft reveal">
+        <h3>${icon('shield')}Soft Skills</h3>
+        <ul class="soft-list">${skills.soft.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+      </div>`);
+  }
 }
 
 /* ---------- Experience / education timelines ---------- */
