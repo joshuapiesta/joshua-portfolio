@@ -86,7 +86,8 @@ if (certs) {
   if (!Array.isArray(certs)) errors.push('certifications.json must be an array');
   (certs || []).forEach((c, i) => {
     const where = `certifications[${i}] (${c.title || '?'})`;
-    require(c, c.status === 'exam-passed' ? ['title', 'issuer'] : ['title', 'issuer', 'issued'], where);
+    require(c, ['title', 'issuer'], where);
+    if (!c.issued && c.status !== 'exam-passed') warnings.push(`${where}: no "issued" date. Card will show no date and sort last.`);
     if (c.status && c.status !== 'exam-passed') errors.push(`${where}: status must be "exam-passed" or omitted`);
     fileExists(c.file, `${where}.file`);
     if (!isDate(c.issued) || !isDate(c.expires)) errors.push(`${where}: issued/expires must be "YYYY-MM" or "YYYY", expires may be null`);

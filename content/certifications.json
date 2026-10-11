@@ -150,5 +150,23 @@
       "Network Security",
       "Incident Response"
     ]
+  },
+  {
+    "title": "Google Cybersecurity Professional Certificate V2",
+    "issuer": "Google",
+    "issued": null,
+    "expires": null,
+    "credentialId": "",
+    "verifyUrl": "https://www.credly.com/badges/201336d5-f6f3-44f3-bdca-5483e97a2ce9/public_url",
+    "image": "",
+    "skills": [
+      "Security Foundations",
+      "SIEM",
+      "IDS",
+      "Linux",
+      "SQL",
+      "Python",
+      "Incident Response"
+    ]
   }
 ]
