@@ -1,5 +1,22 @@
 [
   {
+    "title": "HTB Pro Labs: Zephyr",
+    "issuer": "Hack The Box",
+    "issued": "2026-05",
+    "expires": null,
+    "credentialId": "HTBCERT-9FAD8D2D50",
+    "verifyUrl": "",
+    "image": "assets/certs/htb-zephyr.png",
+    "skills": [
+      "Active Directory",
+      "Lateral Movement",
+      "Relay Attacks",
+      "Pivoting",
+      "Privilege Escalation",
+      "Password Cracking"
+    ]
+  },
+  {
     "title": "Practical Network Penetration Tester (PNPT)",
     "issuer": "TCM Security",
     "issued": "2026-08",
