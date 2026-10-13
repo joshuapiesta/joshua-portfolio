@@ -1,13 +1,19 @@
 /**
- * Renders every section from the loaded content.
- * Each function is pure-ish: takes data, writes HTML into a container.
+ * DOM glue: writes the templates from templates.js into the page and wires the interactive
+ * bits (meta tags, cert filters, lightbox). All markup lives in templates.js so the deploy
+ * can prerender the same HTML without a browser.
  */
-import { $, esc, fmtDate, fmtDuration, monthsBetween, certStatus, icon } from './utils.js';
-
-const tags = (list = [], cls = 'tag') => list.map((t) => `<span class="${cls}">${esc(t)}</span>`).join('');
+import { $ } from './utils.js';
+import {
+  bioHtml, highlightsHtml, linksHtml, statusRowsHtml, jsonLd,
+  skillsHtml, experienceHtml, educationHtml, projectsHtml,
+  sortCerts, certIssuers, certsHtml, certFiltersHtml,
+} from './templates.js';
 
 /* ---------- Profile / hero / about / contact ---------- */
-export function renderProfile(profile, certCount) {
+export function renderProfile(content) {
+  const { profile } = content;
+  const certCount = (content.certifications || []).length;
   document.title = `${profile.name} — Portfolio`;
   $$bind('name', profile.name);
   $$bind('handle', profile.handle);
@@ -29,52 +35,16 @@ export function renderProfile(profile, certCount) {
   setMeta('property', 'og:title', `${profile.name} — ${profile.title}`);
   setMeta('property', 'og:description', profile.seo?.description);
   if (profile.siteUrl) setMeta('property', 'og:url', profile.siteUrl);
-  $('#jsonld').textContent = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: profile.name,
-    jobTitle: profile.title,
-    email: profile.email,
-    url: profile.siteUrl,
-    address: profile.location,
-    sameAs: (profile.links || []).map((l) => l.url).filter((u) => u.startsWith('http')),
-  });
+  $('#jsonld').textContent = JSON.stringify(jsonLd(content));
 
-  // Status card in hero.
-  $('#status-card').innerHTML = [
-    ['status', `<span class="ok">${esc(profile.availability || 'online')}</span>`],
-    ['role', esc(profile.title)],
-    ['location', esc(profile.location)],
-    ['certs', `${certCount} verified`],
-    ['uptime', `<span id="uptime">0d 0h 0m</span>`],
-    ['last_login', esc(new Date().toLocaleDateString('en', { dateStyle: 'medium' }))],
-  ].map(([k, v]) => `<div class="row"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('');
+  $('#status-card').innerHTML = statusRowsHtml(profile, certCount);
 
-  // Social links (hero + contact).
-  const links = (profile.links || []).map((l) =>
-    `<li><a href="${esc(l.url)}" ${l.url.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>${icon(l.icon)}<span>${esc(l.label)}</span></a></li>`
-  ).join('');
+  const links = linksHtml(profile);
   $('#hero-links').innerHTML = links;
   $('#contact-links').innerHTML = links;
 
-  // Bio + highlights.
-  $('#bio').innerHTML = (profile.bio || []).map((p) => `<p>${esc(p)}</p>`).join('');
-  $('#highlights').innerHTML = (profile.highlights || []).map((h) => {
-    const value = autoHighlight(h, certCount);
-    return `<li><strong data-count="${esc(value)}">${esc(value)}</strong><span>${esc(h.label)}</span></li>`;
-  }).join('');
-}
-
-/**
- * "auto" highlight values:
- *  - with a "since": "YYYY-MM" field → whole years elapsed, e.g. "3+"
- *  - with "cert" in the label → number of certifications
- */
-function autoHighlight(h, certCount) {
-  if (h.value !== 'auto') return h.value;
-  if (h.since) return `${Math.floor(monthsBetween(h.since) / 12)}+`;
-  if (/cert/i.test(h.label)) return String(certCount);
-  return '';
+  $('#bio').innerHTML = bioHtml(profile);
+  $('#highlights').innerHTML = highlightsHtml(profile, certCount);
 }
 
 function $$bind(key, value) {
@@ -89,51 +59,17 @@ function setMeta(attr, key, value) {
 }
 
 /* ---------- Skills ---------- */
-/**
- * Every skill card is a plain checklist: no self-rated percentages. Recruiters read
- * "Python 55%" as a weakness and "85%" as unverifiable; depth is shown by the
- * experience, projects and certification sections instead.
- * A skill entry is a string; `{ "name": "..." }` objects from the old format still work.
- */
-const skillName = (s) => (typeof s === 'string' ? s : s?.name || '');
-
-const skillCard = (title, iconName, items, extraClass = '') => `
-  <div class="skill-group ${extraClass} reveal">
-    <h3>${icon(iconName)}${esc(title)}</h3>
-    <ul class="skill-list">${items.map((s) => `<li>${esc(skillName(s))}</li>`).join('')}</ul>
-  </div>`;
-
 export function renderSkills(skills) {
-  const cards = (skills.categories || []).map((cat) => skillCard(cat.name, cat.icon || 'code', cat.skills || []));
-  if (skills.soft?.length) cards.push(skillCard('Soft Skills', 'users', skills.soft, 'skill-group--soft'));
-  $('#skills-grid').innerHTML = cards.join('');
+  $('#skills-grid').innerHTML = skillsHtml(skills);
 }
 
 /* ---------- Experience / education timelines ---------- */
 export function renderExperience(items) {
-  $('#experience-list').innerHTML = items.map((x) => `
-    <li class="reveal">
-      <div class="tl__head">
-        <h3>${esc(x.role)}</h3>
-        <span class="tl__org">@ ${x.companyUrl ? `<a href="${esc(x.companyUrl)}" target="_blank" rel="noopener">${esc(x.company)}</a>` : esc(x.company)}</span>
-        <span class="tl__meta">${x.type ? `${esc(x.type)} · ` : ''}${fmtDate(x.start)} – ${fmtDate(x.end)} · ${fmtDuration(x.start, x.end)}${x.location ? ` · ${esc(x.location)}` : ''}</span>
-      </div>
-      ${x.summary ? `<p class="tl__summary">${esc(x.summary)}</p>` : ''}
-      ${x.bullets?.length ? `<ul class="tl__bullets">${x.bullets.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}
-      ${x.tech?.length ? `<div class="tl__tags">${tags(x.tech)}</div>` : ''}
-    </li>`).join('') || '<li class="empty">Nothing here yet.</li>';
+  $('#experience-list').innerHTML = experienceHtml(items);
 }
 
 export function renderEducation(items) {
-  $('#education-list').innerHTML = items.map((e) => `
-    <li class="reveal">
-      <div class="tl__head">
-        <h3>${esc(e.degree)}${e.field ? `, ${esc(e.field)}` : ''}</h3>
-        <span class="tl__org">@ ${esc(e.school)}</span>
-        <span class="tl__meta">${esc(e.start)} – ${esc(e.end || 'Present')}</span>
-      </div>
-      ${e.details?.length ? `<ul class="tl__bullets">${e.details.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}
-    </li>`).join('') || '<li class="empty">Nothing here yet.</li>';
+  $('#education-list').innerHTML = educationHtml(items);
 }
 
 /* ---------- Projects ---------- */
@@ -144,62 +80,19 @@ export function renderProjects(projects) {
     document.querySelectorAll('a[href="#projects"]').forEach((a) => { a.closest('li')?.remove(); a.remove(); });
     return;
   }
-  const sorted = [...projects].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
-  $('#projects-grid').innerHTML = sorted.map((p) => `
-    <article class="card reveal ${p.featured ? 'card--featured' : ''}">
-      <h3>${esc(p.name)} ${p.status ? `<span class="badge badge--${esc(p.status)}">${esc(p.status)}</span>` : ''}</h3>
-      ${p.tagline ? `<p class="card__tagline">${esc(p.tagline)}</p>` : ''}
-      <p class="card__desc">${esc(p.description)}</p>
-      <div class="card__tags">${tags(p.tech)}</div>
-      <div class="card__links">
-        ${p.repo ? `<a href="${esc(p.repo)}" target="_blank" rel="noopener">source</a>` : ''}
-        ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">live demo</a>` : ''}
-      </div>
-    </article>`).join('') || '<p class="empty">No projects yet.</p>';
+  $('#projects-grid').innerHTML = projectsHtml(projects);
 }
 
 /* ---------- Certifications ---------- */
 export function renderCertifications(certs, { onOpenImage }) {
   const grid = $('#certs-grid');
   const filters = $('#cert-filters');
-  const sorted = [...certs].sort((a, b) => String(b.issued || '').localeCompare(String(a.issued || '')));
-  const issuers = [...new Set(sorted.map((c) => c.issuer).filter(Boolean))];
-
-  const STATUS_LABEL = { active: 'valid', expiring: 'expires soon', expired: 'expired', 'exam-passed': 'exam passed' };
+  const sorted = sortCerts(certs);
+  const issuers = certIssuers(sorted);
 
   const draw = (filter) => {
     const list = filter === 'all' ? sorted : sorted.filter((c) => c.issuer === filter);
-    grid.innerHTML = list.map((c, i) => {
-      const status = c.status === 'exam-passed' ? 'exam-passed' : certStatus(c.expires);
-      const pdf = c.file || (/\.pdf(\?|$)/i.test(c.image || '') ? c.image : '');
-      const img = c.image && c.image !== pdf ? c.image : '';
-      const thumb = img
-        ? `<button class="cert__thumb" type="button" data-cert="${i}" aria-label="View ${esc(c.title)} certificate"><img src="${esc(img)}" alt="${esc(c.title)}" loading="lazy"></button>`
-        : pdf
-          ? `<a class="cert__thumb cert__thumb--pdf" href="${esc(pdf)}" target="_blank" rel="noopener">📄<small>open PDF</small></a>`
-          : '';
-      const dates = c.issued
-        ? `Issued ${fmtDate(c.issued)}${c.expires ? ` · Expires ${fmtDate(c.expires)}` : ' · No expiry'}`
-        : (c.expires ? `Expires ${fmtDate(c.expires)}` : '');
-      return `
-        <article class="card reveal" data-issuer="${esc(c.issuer)}">
-          ${thumb}
-          <h3>${esc(c.title)}</h3>
-          <p class="card__tagline">${esc(c.issuer)} <span class="badge badge--${status}">${STATUS_LABEL[status]}</span></p>
-          <p class="cert__meta">
-            ${dates}
-            ${c.credentialId ? `${dates ? '<br>' : ''}ID <code>${esc(c.credentialId)}</code>` : ''}
-          </p>
-          ${c.note ? `<p class="cert__note">${esc(c.note)}</p>` : ''}
-          ${c.skills?.length ? `<div class="card__tags">${tags(c.skills)}</div>` : ''}
-          <div class="card__links">
-            ${c.verifyUrl ? `<a href="${esc(c.verifyUrl)}" target="_blank" rel="noopener">verify</a>` : ''}
-            ${pdf ? `<a href="${esc(pdf)}" target="_blank" rel="noopener">open PDF</a>` : ''}
-            ${img ? `<a href="${esc(img)}" target="_blank" rel="noopener">open image</a>` : ''}
-          </div>
-        </article>`;
-    }).join('') || '<p class="empty">No certifications added yet. See README for how to add one.</p>';
-
+    grid.innerHTML = certsHtml(list);
     grid.querySelectorAll('[data-cert]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const c = list[Number(btn.dataset.cert)];
@@ -209,8 +102,7 @@ export function renderCertifications(certs, { onOpenImage }) {
     grid.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
   };
 
-  filters.innerHTML = ['all', ...issuers].map((name, i) =>
-    `<button type="button" data-filter="${esc(name)}" class="${i === 0 ? 'is-active' : ''}">${esc(name)}</button>`).join('');
+  filters.innerHTML = certFiltersHtml(issuers);
   filters.addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-filter]');
     if (!btn) return;

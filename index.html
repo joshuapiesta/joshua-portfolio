@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
   <script type="application/ld+json" id="jsonld"></script>
+  <!-- Without JavaScript (crawlers, link previews, AI assistants): no boot overlay, nothing hidden by the scroll-reveal. -->
+  <noscript><style>.boot{display:none!important}.reveal{opacity:1!important;transform:none!important}.cursor{display:none}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#about">Skip to content</a>
@@ -62,14 +64,14 @@
     <section class="hero" id="hero">
       <div class="container hero__grid">
         <div class="hero__text">
-          <p class="hero__pre"><span class="prompt">$</span> whoami</p>
+          <p class="hero__pre" data-hacker-only><span class="prompt">$</span> whoami</p>
           <h1 class="hero__name glitch" data-bind="name" data-text="Joshua Bobb Piesta">Joshua Bobb Piesta</h1>
-          <p class="hero__title"><span class="prompt">$</span> cat role.txt<br><span class="typed" id="typed-title" data-bind="title"></span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="hero__title"><span class="hero__cmd" data-hacker-only><span class="prompt">$</span> cat role.txt<br></span><span class="typed" id="typed-title" data-bind="title"></span><span class="cursor" aria-hidden="true"></span></p>
           <p class="hero__tagline" data-bind="tagline"></p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="#certifications">view certifications</a>
             <a class="btn btn--ghost resume-link" href="assets/resume.pdf" download>download resume</a>
-            <button class="btn btn--ghost" id="hero-terminal">open terminal</button>
+            <button class="btn btn--ghost" id="hero-terminal" data-hacker-only>open terminal</button>
           </div>
           <ul class="hero__links" id="hero-links"></ul>
         </div>

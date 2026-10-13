@@ -18,5 +18,11 @@ Assume GitHub in the browser or GitHub Desktop. Do not hand over raw git command
   which appends `?v=<commit>` to the site's CSS/JS URLs so a browser never mixes fresh content JSON with a
   cached, older renderer. New local stylesheet/script tags in `index.html` and `from './x.js'` imports in `js/`
   must keep those shapes so the stamper finds them.
+- The deploy also runs `scripts/prerender.js`, which bakes all sections and the schema.org Person block into
+  `index.html` for crawlers and AI tools that never run JavaScript. It imports `js/templates.js`, so that file
+  must stay DOM-free (no `document`/`window`); DOM writes belong in `js/render.js`. Section containers in
+  `index.html` must stay empty in the source, and keep their ids, or the prerender refuses to run.
+- Anything that only makes sense in hacker view (prompt lines, terminal button, uptime rows, joke stat tiles)
+  carries a `data-hacker-only` attribute; CSS hides it in recruiter view and print. Use it rather than new rules.
 - Skills are plain checklists on purpose. Self-rated percentages or levels read as a red flag to recruiters;
   do not reintroduce them.

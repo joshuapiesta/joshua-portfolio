@@ -282,6 +282,8 @@ html[data-mode="hacker"] .glitch:hover::after { color: var(--danger); clip-path:
 .contact__links svg { width: 20px; height: 20px; fill: currentColor; }
 .contact__hint { color: var(--fg-muted); font-size: 13px; }
 html[data-mode="recruiter"] .contact__hint, html[data-mode="recruiter"] .footer__hint { display: none; }
+/* Hacker-only bits (prompt lines, the hero terminal button, uptime/last_login rows, joke stat tiles). */
+html[data-mode="recruiter"] [data-hacker-only] { display: none !important; }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--border); padding: 24px 0; color: var(--fg-muted); font-size: 13px; }
@@ -330,7 +332,7 @@ html.party { animation: hue 2s linear infinite; }
 /* ---------- Print: a clean one-page résumé ---------- */
 @media print {
   :root { --bg: #fff; --bg-elev: #fff; --bg-card: #fff; --fg: #000; --fg-muted: #444; --accent: #0b6e4f; --border: #bbb; --glow: none; --font: var(--font-sans); }
-  .matrix, .scanlines, .boot, .nav, .terminal, .lightbox, .toast, .hero__cta, .hero__scroll, .hero__card, .filters, .footer__hint, .contact__hint, .cert__thumb, .about__avatar { display: none !important; }
+  .matrix, .scanlines, .boot, .nav, .terminal, .lightbox, .toast, .hero__cta, .hero__scroll, .hero__card, .filters, .footer__hint, .contact__hint, .cert__thumb, .about__avatar, [data-hacker-only] { display: none !important; }
   .hero { min-height: auto; padding: 0 0 12px; }
   .section { padding: 18px 0; break-inside: avoid; }
   .card { break-inside: avoid; box-shadow: none; }

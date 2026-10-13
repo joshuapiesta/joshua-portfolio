@@ -194,13 +194,22 @@ js/terminal.js          the in-page terminal and its commands
 js/matrix.js            matrix rain canvas
 js/effects.js           boot screen, typewriter, scroll reveal, nav, lightbox, Konami
 js/mode.js              hacker/recruiter switch (localStorage + ?mode=)
+js/templates.js         HTML templates (pure functions, shared with the deploy-time prerender)
 js/utils.js             helpers and inline SVG icons
 content/*.json          YOUR DATA — the only files you need to edit
 assets/certs/           certificate thumbnails (PNG/JPG, ~600 px wide)
 assets/img/             photo, favicon, Open Graph image
-scripts/                dev server, validator, add-cert helper
-.github/workflows/      GitHub Pages deploy (validates content first)
+scripts/                dev server, validator, add-cert helper, deploy-time prerender + cache-busting
+.github/workflows/      GitHub Pages deploy (validates content, prerenders, cache-busts)
 ```
+
+## What crawlers and AI tools see
+
+The deploy runs `scripts/prerender.js`, which bakes every section and a schema.org `Person` block (skills,
+employer, school, every certification with issuer and dates) into `index.html`. Search engines, link previews
+and AI assistants that never run JavaScript therefore read the full CV, not an empty shell. The browser still
+re-renders from the same templates on load, so nothing changes for visitors. Locally, `npm run dev` serves the
+un-prerendered page, which is why "view source" on localhost shows empty sections.
 
 ## Customising
 

@@ -38,7 +38,7 @@ async function init() {
 
   // Hide the résumé button if the PDF hasn't been uploaded yet (no broken links for recruiters).
   content.profile.hasResume = await fileExists(content.profile.resume);
-  renderProfile(content.profile, content.certifications.length);
+  renderProfile(content);
   renderSkills(content.skills);
   renderExperience(content.experience);
   renderProjects(content.projects);
