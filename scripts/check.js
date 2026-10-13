@@ -51,11 +51,20 @@ if (skills) {
   if (!Array.isArray(skills.categories)) errors.push('skills.categories must be an array');
   (skills.categories || []).forEach((c, i) => {
     require(c, ['name', 'skills'], `skills.categories[${i}]`);
-    (c.skills || []).forEach((s, j) => {
-      require(s, ['name'], `skills.categories[${i}].skills[${j}]`);
-      if (s.level != null && (s.level < 0 || s.level > 100)) errors.push(`skills "${s.name}": level must be 0–100`);
+    if (c.skills && !Array.isArray(c.skills)) errors.push(`skills.categories[${i}].skills must be an array`);
+    (Array.isArray(c.skills) ? c.skills : []).forEach((s, j) => {
+      const where = `skills.categories[${i}].skills[${j}]`;
+      if (typeof s === 'string') {
+        if (!s.trim()) errors.push(`${where}: empty skill name`);
+      } else if (s && typeof s === 'object') {
+        require(s, ['name'], where);
+        if (s.level != null) warnings.push(`${where} ("${s.name}"): "level" is no longer shown. Skills are plain strings now, e.g. "${s.name}".`);
+      } else {
+        errors.push(`${where}: must be a string`);
+      }
     });
   });
+  if (skills.soft != null && !Array.isArray(skills.soft)) errors.push('skills.soft must be an array of strings');
 }
 
 /* ---- experience ---- */

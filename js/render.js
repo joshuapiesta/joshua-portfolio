@@ -89,24 +89,24 @@ function setMeta(attr, key, value) {
 }
 
 /* ---------- Skills ---------- */
+/**
+ * Every skill card is a plain checklist: no self-rated percentages. Recruiters read
+ * "Python 55%" as a weakness and "85%" as unverifiable; depth is shown by the
+ * experience, projects and certification sections instead.
+ * A skill entry is a string; `{ "name": "..." }` objects from the old format still work.
+ */
+const skillName = (s) => (typeof s === 'string' ? s : s?.name || '');
+
+const skillCard = (title, iconName, items, extraClass = '') => `
+  <div class="skill-group ${extraClass} reveal">
+    <h3>${icon(iconName)}${esc(title)}</h3>
+    <ul class="skill-list">${items.map((s) => `<li>${esc(skillName(s))}</li>`).join('')}</ul>
+  </div>`;
+
 export function renderSkills(skills) {
-  $('#skills-grid').innerHTML = (skills.categories || []).map((cat) => `
-    <div class="skill-group reveal">
-      <h3>${icon(cat.icon || 'code')}${esc(cat.name)}</h3>
-      ${(cat.skills || []).map((s) => `
-        <div class="skill">
-          <div class="skill__head"><span>${esc(s.name)}</span><span>${Number(s.level) || 0}%</span></div>
-          <div class="bar" role="progressbar" aria-valuenow="${Number(s.level) || 0}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(s.name)}"><i style="--w:${Number(s.level) || 0}%"></i></div>
-        </div>`).join('')}
-    </div>`).join('');
-  // Soft skills get their own card in the same grid, as a checklist instead of bars.
-  if (skills.soft?.length) {
-    $('#skills-grid').insertAdjacentHTML('beforeend', `
-      <div class="skill-group skill-group--soft reveal">
-        <h3>${icon('shield')}Soft Skills</h3>
-        <ul class="soft-list">${skills.soft.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
-      </div>`);
-  }
+  const cards = (skills.categories || []).map((cat) => skillCard(cat.name, cat.icon || 'code', cat.skills || []));
+  if (skills.soft?.length) cards.push(skillCard('Soft Skills', 'shield', skills.soft, 'skill-group--soft'));
+  $('#skills-grid').innerHTML = cards.join('');
 }
 
 /* ---------- Experience / education timelines ---------- */
