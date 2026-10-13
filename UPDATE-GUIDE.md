@@ -117,6 +117,15 @@ Paste at the **top** of the list, right after the opening `[`:
 
 When you leave a job, change its `"end": null` to the month you left, e.g. `"end": "2026-05"`.
 
+### See your change on the live site
+
+1. Merge the change into `main` (open the pull request on GitHub, press **Merge pull request**, then **Confirm merge**).
+2. Open the repo's **Actions** tab and wait for **Deploy to GitHub Pages** to show a green tick (about a minute).
+3. Open https://joshuapiesta.github.io/joshua-portfolio/ and reload.
+4. Still seeing the old version? Hard-refresh once: **Ctrl+Shift+R** on Windows/Linux, **Cmd+Shift+R** on Mac.
+
+Every deploy stamps the CSS and JS files with the commit id, so a normal reload picks up new code. The hard refresh is only a fallback.
+
 ### Update skills
 
 Edit → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/skills.json
