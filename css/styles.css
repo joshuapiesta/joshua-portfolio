@@ -156,7 +156,6 @@ html[data-mode="recruiter"] .mode-switch__opt[data-mode="recruiter"] { backgroun
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 /* Recruiter view skips entrance animations entirely: nothing is ever hidden. */
 html[data-mode="recruiter"] .reveal { opacity: 1; transform: none; transition: none; }
-html[data-mode="recruiter"] .bar > i { width: var(--w); transition: none; }
 
 /* ---------- Hero ---------- */
 .hero { min-height: calc(100vh - var(--nav-h)); display: grid; align-items: center; position: relative; padding: 64px 0; }
@@ -214,19 +213,14 @@ html[data-mode="hacker"] .glitch:hover::after { color: var(--danger); clip-path:
 @media (max-width: 720px) { .about { grid-template-columns: 1fr; } .about__avatar { width: 160px; } }
 
 /* ---------- Skills ---------- */
+/* Each card is a checklist. Deliberately no progress bars or percentages: self-ratings are unverifiable and read as weaknesses. */
 .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .skill-group { border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); padding: 20px; }
 .skill-group h3 { font-size: 16px; color: var(--accent); display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
 .skill-group h3 svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
-.skill { margin-bottom: 12px; }
-.skill__head { display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px; }
-.skill__head span:last-child { color: var(--fg-muted); }
-.bar { height: 6px; background: color-mix(in srgb, var(--fg-muted) 20%, transparent); border-radius: 999px; overflow: hidden; }
-.bar > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 1.2s var(--ease); }
-.is-visible .bar > i { width: var(--w); }
-.soft-list li { position: relative; padding: 5px 0 5px 22px; font-size: 13.5px; border-bottom: 1px dashed var(--border); }
-.soft-list li:last-child { border-bottom: none; }
-.soft-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.skill-list li { position: relative; padding: 5px 0 5px 22px; font-size: 13.5px; border-bottom: 1px dashed var(--border); }
+.skill-list li:last-child { border-bottom: none; }
+.skill-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 .tag { display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; font-size: 12px; color: var(--fg-muted); background: var(--bg-elev); }
 .tag--accent { color: var(--accent); border-color: var(--accent); }
 

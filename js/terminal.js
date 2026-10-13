@@ -49,13 +49,15 @@ export function createTerminal({ content, mode, matrix, onParty }) {
     skills: {
       desc: 'Skill summary by category',
       run() {
+        const name = (s) => (typeof s === 'string' ? s : s?.name || '');
         skills.categories.forEach((cat) => {
           head(cat.name);
-          cat.skills.forEach((s) => {
-            const filled = Math.round((s.level || 0) / 10);
-            print(`  ${esc(s.name.padEnd(36))} <span class="t-cmd">${'█'.repeat(filled)}</span><span class="t-dim">${'░'.repeat(10 - filled)}</span> ${s.level}%`);
-          });
+          cat.skills.forEach((s) => print(`  <span class="t-cmd">✓</span> ${esc(name(s))}`));
         });
+        if (skills.soft?.length) {
+          head('Soft Skills');
+          skills.soft.forEach((s) => print(`  <span class="t-cmd">✓</span> ${esc(s)}`));
+        }
       },
     },
     experience: {

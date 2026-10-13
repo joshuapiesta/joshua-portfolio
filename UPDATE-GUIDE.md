@@ -121,7 +121,9 @@ When you leave a job, change its `"end": null` to the month you left, e.g. `"end
 
 Edit → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/skills.json
 
-Each skill is `{ "name": "Burp Suite", "level": 85 }` with a level from 0 to 100. Add, remove or reorder freely. The `"soft"` list at the bottom is the Soft Skills card.
+Each category has a `"skills"` list of plain strings, e.g. `"Burp Suite, Nmap, Metasploit, Kali Linux"`. Add, remove or reorder freely. The `"soft"` list at the bottom is the Soft Skills card.
+
+There are deliberately no percentages or skill levels. Recruiters read self-ratings as unverifiable at best and as weaknesses at worst ("Python 55%"). Show depth through your experience bullets, projects and certifications instead.
 
 ### Change the stat tiles under your bio
 

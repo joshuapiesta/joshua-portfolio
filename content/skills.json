@@ -4,45 +4,45 @@
       "name": "Offensive Security",
       "icon": "shield",
       "skills": [
-        { "name": "Web application pentesting (OWASP Top 10)", "level": 85 },
-        { "name": "API security testing", "level": 85 },
-        { "name": "Mobile application testing", "level": 70 },
-        { "name": "AI / LLM penetration testing (OWASP LLM Top 10)", "level": 70 },
-        { "name": "Burp Suite, Nmap, Metasploit, Kali Linux", "level": 85 },
-        { "name": "Proof-of-concept development & retesting", "level": 80 }
+        "Web application pentesting (OWASP Top 10)",
+        "API security testing",
+        "Mobile application testing",
+        "AI / LLM penetration testing (OWASP LLM Top 10)",
+        "Burp Suite, Nmap, Metasploit, Kali Linux",
+        "Proof-of-concept development & retesting"
       ]
     },
     {
       "name": "Defensive Security (SOC)",
       "icon": "server",
       "skills": [
-        { "name": "SIEM: Splunk, Microsoft Sentinel (KQL)", "level": 80 },
-        { "name": "EDR, IDS/IPS, firewall & honeypot monitoring", "level": 80 },
-        { "name": "Alert triage & incident response", "level": 85 },
-        { "name": "Threat hunting & IOC correlation", "level": 70 },
-        { "name": "MSSP / multi-tenant operations", "level": 70 }
+        "SIEM: Splunk, Microsoft Sentinel (KQL)",
+        "EDR, IDS/IPS, firewall & honeypot monitoring",
+        "Alert triage & incident response",
+        "Threat hunting & IOC correlation",
+        "MSSP / multi-tenant operations"
       ]
     },
     {
       "name": "Cloud & Infrastructure Security",
       "icon": "code",
       "skills": [
-        { "name": "Cloud security fundamentals (Azure, AWS)", "level": 60 },
-        { "name": "Container & AI-asset security (Docker)", "level": 60 },
-        { "name": "Identity & access (Active Directory, IAM)", "level": 70 },
-        { "name": "Linux & Windows hardening", "level": 70 },
-        { "name": "Networking (TCP/IP, Wireshark)", "level": 75 }
+        "Cloud security fundamentals (Azure, AWS)",
+        "Container & AI-asset security (Docker)",
+        "Identity & access (Active Directory, IAM)",
+        "Linux & Windows hardening",
+        "Networking (TCP/IP, Wireshark)"
       ]
     },
     {
       "name": "Systems, Tools & AI",
       "icon": "terminal",
       "skills": [
-        { "name": "Linux", "level": 80 },
-        { "name": "Windows", "level": 80 },
-        { "name": "AI-assisted workflows (LLMs for analysis, scripting, reporting)", "level": 85 },
-        { "name": "Scripting: Python, Bash, PowerShell (read, adapt, automate)", "level": 55 },
-        { "name": "Git / GitHub", "level": 60 }
+        "Linux",
+        "Windows",
+        "AI-assisted workflows (LLMs for analysis, scripting, reporting)",
+        "Scripting: Python, Bash, PowerShell (read, adapt, automate)",
+        "Git / GitHub"
       ]
     }
   ],

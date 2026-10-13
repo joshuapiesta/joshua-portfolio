@@ -42,7 +42,7 @@ If a push contains invalid JSON, the deploy fails and the **Actions** tab shows 
 | `content/profile.json` | Name, title, tagline, bio, location, email, availability, social links, stat tiles, fun facts, SEO description |
 | `content/experience.json` | Jobs, newest first. `"end": null` = current role. `type` = Full-time / Contract / Internship |
 | `content/certifications.json` | Certifications. See the privacy rules below |
-| `content/skills.json` | Skill groups with 0–100 levels, plus the soft-skills card |
+| `content/skills.json` | Skill checklists grouped by category, plus the soft-skills card. No self-rated levels |
 | `content/education.json` | Schools and degrees |
 | `content/projects.json` | Projects. Leave as `[]` to hide the section |
 
@@ -110,7 +110,7 @@ Everything it prints comes from `content/*.json`, so it updates itself when you 
 | `help` | Lists all public commands |
 | `whoami` | Name, title and tagline |
 | `about` | Bio, location and availability |
-| `skills` | Skills as ASCII progress bars, grouped by category |
+| `skills` | Skills as a checklist, grouped by category |
 | `experience` | Work history with bullet points |
 | `projects` | Projects with stack, repo and demo links |
 | `certs` | Certifications with issue/expiry dates, credential IDs and verify links |
