@@ -2,7 +2,7 @@
   "categories": [
     {
       "name": "Offensive Security",
-      "icon": "shield",
+      "icon": "sword",
       "skills": [
         "Web application pentesting (OWASP Top 10)",
         "API security testing",
@@ -14,7 +14,7 @@
     },
     {
       "name": "Defensive Security (SOC)",
-      "icon": "server",
+      "icon": "shield",
       "skills": [
         "SIEM: Splunk, Microsoft Sentinel (KQL)",
         "EDR, IDS/IPS, firewall & honeypot monitoring",
@@ -25,7 +25,7 @@
     },
     {
       "name": "Cloud & Infrastructure Security",
-      "icon": "code",
+      "icon": "cloud",
       "skills": [
         "Cloud security fundamentals (Azure, AWS)",
         "Container & AI-asset security (Docker)",
@@ -36,7 +36,7 @@
     },
     {
       "name": "Systems, Tools & AI",
-      "icon": "terminal",
+      "icon": "cpu",
       "skills": [
         "Linux",
         "Windows",

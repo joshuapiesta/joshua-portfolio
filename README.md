@@ -206,7 +206,8 @@ scripts/                dev server, validator, add-cert helper
 
 - **Colours:** tokens at the top of `css/styles.css`. Recruiter colours are under `html[data-mode="recruiter"]`.
 - **Terminal commands:** add an entry to the `commands` object in `js/terminal.js`.
-- **Social icons:** `links[].icon` in `profile.json` accepts `linkedin`, `mail`, `github`, `twitter`, `website`, `hackerrank`, `tryhackme`. Unknown names fall back to a globe.
+- **Social icons:** `links[].icon` in `profile.json` accepts `linkedin`, `mail`, `github`, `twitter`, `website`, `hackerrank`, `tryhackme`. Unknown names fall back to a globe, and `npm run check` warns about them.
+- **Skill card icons:** `categories[].icon` in `skills.json` accepts `sword`, `shield`, `cloud`, `cpu`, `users`, `terminal`, `server`, `code`. The Soft Skills card always uses `users`.
 - **New section:** add a container in `index.html`, a JSON file in `content/`, register it in `js/data.js`, and write a render function in `js/render.js`.
 
 ## Security notes

@@ -132,6 +132,8 @@ Edit → https://github.com/joshuapiesta/joshua-portfolio/edit/main/content/skil
 
 Each category has a `"skills"` list of plain strings, e.g. `"Burp Suite, Nmap, Metasploit, Kali Linux"`. Add, remove or reorder freely. The `"soft"` list at the bottom is the Soft Skills card.
 
+Each category also has an `"icon"`: `sword`, `shield`, `cloud`, `cpu`, `users`, `terminal`, `server` or `code`.
+
 There are deliberately no percentages or skill levels. Recruiters read self-ratings as unverifiable at best and as weaknesses at worst ("Python 55%"). Show depth through your experience bullets, projects and certifications instead.
 
 ### Change the stat tiles under your bio
