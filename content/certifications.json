@@ -8,11 +8,17 @@
     "verifyUrl": "https://www.credential.net/191971077",
     "image": "assets/certs/pnpt.png",
     "skills": [
-      "Network Pentesting",
-      "Active Directory",
-      "OSINT",
-      "Reporting",
-      "Live Debrief"
+      "External Network Pentesting",
+      "Internal Network Pentesting",
+      "OSINT & Reconnaissance",
+      "Active Directory Attacks",
+      "LLMNR Poisoning & NTLM Relay",
+      "Kerberoasting",
+      "Lateral Movement",
+      "Privilege Escalation (Windows & Linux)",
+      "Domain Controller Compromise",
+      "Professional Report Writing",
+      "Client Debrief"
     ]
   },
   {
@@ -24,12 +30,15 @@
     "verifyUrl": "",
     "image": "assets/certs/htb-zephyr.png",
     "skills": [
-      "Active Directory",
-      "Lateral Movement",
+      "Active Directory Enumeration & Exploitation",
+      "Lateral Movement across Trust Boundaries",
       "Relay Attacks",
-      "Pivoting",
+      "Pivoting & Tunnelling",
       "Privilege Escalation",
-      "Password Cracking"
+      "Password Cracking",
+      "Web Application & SQL Attacks",
+      "BloodHound",
+      "Red Team Simulation"
     ]
   },
   {
@@ -41,10 +50,18 @@
     "verifyUrl": "https://www.credly.com/badges/c5bbcaa2-3fd7-4184-bb3b-09b337017c65/public_url",
     "image": "assets/certs/htb-cwes.png",
     "skills": [
-      "Web Exploitation",
-      "Bug Bounty",
-      "OWASP Top 10",
-      "Burp Suite"
+      "Web Application Pentesting",
+      "API & Web Service Attacks (REST, SOAP)",
+      "SQL Injection",
+      "Cross-Site Scripting (XSS)",
+      "Command Injection",
+      "File Upload & File Inclusion (LFI/RFI)",
+      "SSRF, SSTI & XXE",
+      "IDOR & Broken Access Control",
+      "Authentication & Session Attacks",
+      "Web Fuzzing & Recon",
+      "Burp Suite",
+      "Bug Bounty Methodology & Reporting"
     ]
   },
   {
@@ -56,9 +73,18 @@
     "verifyUrl": "https://www.credential.net/152671130",
     "image": "assets/certs/pwpa.png",
     "skills": [
-      "Web App Pentesting",
-      "OWASP Top 10",
-      "Reporting"
+      "Web Application Pentesting",
+      "OWASP Top 10 Exploitation",
+      "SQL Injection",
+      "Cross-Site Scripting (XSS)",
+      "Command Injection",
+      "IDOR & Broken Access Control",
+      "Insecure File Upload",
+      "Authentication Attacks",
+      "WAF Bypass",
+      "Burp Suite",
+      "Professional Report Writing",
+      "Responsible Disclosure"
     ]
   },
   {
@@ -70,10 +96,15 @@
     "verifyUrl": "https://www.credly.com/badges/ad65a8a0-f56c-47da-8263-4e1d3862e585/public_url",
     "image": "assets/certs/thm-sal1.png",
     "skills": [
-      "SOC Operations",
-      "Alert Triage",
-      "SIEM",
-      "Incident Response"
+      "SOC Operations & Workflows",
+      "Alert Triage & Prioritisation",
+      "SIEM Investigation (Splunk)",
+      "True / False Positive Analysis",
+      "Incident Reporting & Escalation",
+      "Network & Web Attack Detection",
+      "Endpoint Monitoring",
+      "Cyber Defence Frameworks (MITRE ATT&CK, Kill Chain)",
+      "Hands-on SOC Simulation"
     ]
   },
   {
@@ -85,9 +116,21 @@
     "verifyUrl": "https://aspen.eccouncil.org/Verify",
     "image": "assets/certs/ceh.png",
     "skills": [
-      "Ethical Hacking",
+      "Ethical Hacking Methodology",
+      "Footprinting & Reconnaissance",
+      "Network Scanning & Enumeration",
       "Vulnerability Analysis",
-      "Attack Vectors"
+      "System Hacking",
+      "Malware Threats",
+      "Sniffing & Session Hijacking",
+      "Social Engineering",
+      "Denial-of-Service",
+      "Evading IDS, Firewalls & Honeypots",
+      "Web Server & Web App Hacking",
+      "SQL Injection",
+      "Wireless, Mobile & IoT/OT Hacking",
+      "Cloud Computing Security",
+      "Cryptography"
     ]
   },
   {
@@ -99,9 +142,13 @@
     "verifyUrl": "https://aws.amazon.com/verification",
     "image": "assets/certs/aws-cloud-practitioner.png",
     "skills": [
-      "Cloud Fundamentals",
-      "AWS",
-      "Shared Responsibility Model"
+      "AWS Cloud Concepts",
+      "Shared Responsibility Model",
+      "IAM & Access Management",
+      "AWS Security & Compliance Services",
+      "Core Services (EC2, S3, VPC, RDS, Lambda)",
+      "Well-Architected Framework",
+      "Billing, Pricing & Support"
     ]
   },
   {
@@ -114,10 +161,13 @@
     "image": "assets/certs/btl1.png",
     "skills": [
       "Phishing Analysis",
-      "Threat Intelligence",
-      "Digital Forensics",
-      "SIEM",
-      "Incident Response"
+      "Threat Intelligence (MISP)",
+      "Digital Forensics (Autopsy, Volatility, KAPE)",
+      "SIEM Investigations (Splunk)",
+      "Network Analysis (Wireshark)",
+      "Incident Response",
+      "Security Fundamentals",
+      "Hands-on Incident Investigation"
     ]
   },
   {
@@ -129,13 +179,17 @@
     "verifyUrl": "https://www.credly.com/badges/201336d5-f6f3-44f3-bdca-5483e97a2ce9/public_url",
     "image": "assets/certs/google-cybersecurity.png",
     "skills": [
-      "Security Foundations",
-      "SIEM",
-      "IDS",
-      "Linux",
+      "Security Foundations & Frameworks (NIST CSF)",
+      "Risk Management",
+      "Network Security",
+      "Linux Command Line",
       "SQL",
-      "Python",
-      "Incident Response"
+      "Threats, Assets & Vulnerabilities",
+      "IDS (Suricata)",
+      "SIEM (Splunk, Google Chronicle)",
+      "Packet Analysis (Wireshark, tcpdump)",
+      "Incident Detection & Response",
+      "Python for Security Automation"
     ]
   },
   {
@@ -149,10 +203,12 @@
     "verifyUrl": "",
     "image": "",
     "skills": [
-      "Security Principles",
-      "Access Control",
+      "Security Principles (CIA, Risk, Governance)",
+      "Business Continuity & Disaster Recovery",
+      "Incident Response Concepts",
+      "Access Control Concepts",
       "Network Security",
-      "Incident Response"
+      "Security Operations (Hardening, Data Security)"
     ]
   },
   {
@@ -164,9 +220,13 @@
     "verifyUrl": "https://www.credly.com/badges/8313893f-3e31-4753-9cce-81ea1cbf1d11/public_url",
     "image": "assets/certs/comptia-security-plus.png",
     "skills": [
-      "Security Fundamentals",
-      "Threats & Vulnerabilities",
-      "Cryptography"
+      "Threats, Attacks & Vulnerabilities",
+      "Security Architecture & Design",
+      "Identity & Access Management",
+      "Network Security",
+      "Cryptography & PKI",
+      "Operations & Incident Response",
+      "Governance, Risk & Compliance"
     ]
   }
 ]
