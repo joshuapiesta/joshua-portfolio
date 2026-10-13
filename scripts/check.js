@@ -11,6 +11,14 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const errors = [];
 const warnings = [];
 
+// Icon names come from js/utils.js so the list never drifts. Loaded lazily: if the browser
+// module ever stops importing under Node, validation just skips the icon check.
+let ICON_NAMES = null;
+try { ICON_NAMES = Object.keys((await import('../js/utils.js')).ICONS); } catch { /* skip icon validation */ }
+const checkIcon = (name, where) => {
+  if (name && ICON_NAMES && !ICON_NAMES.includes(name)) warnings.push(`${where}: unknown icon "${name}" (falls back to a globe). Known icons: ${ICON_NAMES.join(', ')}`);
+};
+
 const DATE = /^\d{4}(-(0[1-9]|1[0-2]))?$/;
 const isDate = (v) => v == null || DATE.test(String(v));
 const isUrl = (v) => !v || /^(https?:\/\/|mailto:)/.test(v);
@@ -42,7 +50,7 @@ if (profile) {
   fileExists(profile.avatar, 'profile.avatar');
   if (profile.resume && !existsSync(join(ROOT, profile.resume))) warnings.push(`profile.resume: ${profile.resume} not found. The "download resume" button stays hidden until you add it.`);
   (profile.highlights || []).forEach((h, i) => { if (h.since && !isDate(h.since)) errors.push(`profile.highlights[${i}]: "since" must be "YYYY-MM"`); });
-  (profile.links || []).forEach((l, i) => { require(l, ['label', 'url'], `profile.links[${i}]`); if (!isUrl(l.url)) errors.push(`profile.links[${i}].url must start with http(s):// or mailto:`); });
+  (profile.links || []).forEach((l, i) => { require(l, ['label', 'url'], `profile.links[${i}]`); if (!isUrl(l.url)) errors.push(`profile.links[${i}].url must start with http(s):// or mailto:`); checkIcon(l.icon, `profile.links[${i}]`); });
 }
 
 /* ---- skills ---- */
@@ -51,6 +59,7 @@ if (skills) {
   if (!Array.isArray(skills.categories)) errors.push('skills.categories must be an array');
   (skills.categories || []).forEach((c, i) => {
     require(c, ['name', 'skills'], `skills.categories[${i}]`);
+    checkIcon(c.icon, `skills.categories[${i}] (${c.name})`);
     if (c.skills && !Array.isArray(c.skills)) errors.push(`skills.categories[${i}].skills must be an array`);
     (Array.isArray(c.skills) ? c.skills : []).forEach((s, j) => {
       const where = `skills.categories[${i}].skills[${j}]`;

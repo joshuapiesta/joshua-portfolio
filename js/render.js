@@ -105,7 +105,7 @@ const skillCard = (title, iconName, items, extraClass = '') => `
 
 export function renderSkills(skills) {
   const cards = (skills.categories || []).map((cat) => skillCard(cat.name, cat.icon || 'code', cat.skills || []));
-  if (skills.soft?.length) cards.push(skillCard('Soft Skills', 'shield', skills.soft, 'skill-group--soft'));
+  if (skills.soft?.length) cards.push(skillCard('Soft Skills', 'users', skills.soft, 'skill-group--soft'));
   $('#skills-grid').innerHTML = cards.join('');
 }
 
