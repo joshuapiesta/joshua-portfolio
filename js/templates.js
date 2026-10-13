@@ -170,7 +170,11 @@ export function jsonLd({ profile, skills = {}, experience = [], certifications =
     sameAs: (profile.links || []).map((l) => l.url).filter((u) => u.startsWith('http')),
     worksFor: current ? { '@type': 'Organization', name: current.company, url: current.companyUrl || undefined } : undefined,
     alumniOf: education.map((e) => ({ '@type': 'EducationalOrganization', name: e.school })),
-    knowsAbout: (skills.categories || []).flatMap((c) => (c.skills || []).map(skillName)).filter(Boolean),
+    // Skills plus every certification's tags, de-duplicated: the keyword list AI tools and search engines read.
+    knowsAbout: [...new Set([
+      ...(skills.categories || []).flatMap((c) => (c.skills || []).map(skillName)),
+      ...certifications.flatMap((c) => c.skills || []),
+    ])].filter(Boolean),
     hasCredential: certifications.map((c) => ({
       '@type': 'EducationalOccupationalCredential',
       name: c.title,
