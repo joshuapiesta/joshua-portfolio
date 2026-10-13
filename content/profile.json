@@ -31,7 +31,8 @@
     },
     {
       "label": "Coffee consumed",
-      "value": "∞"
+      "value": "∞",
+      "hackerOnly": true
     }
   ],
   "links": [

@@ -38,6 +38,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # Bake the content into index.html so crawlers and AI tools that never run JavaScript still see the full CV.
+      - name: Prerender content into index.html
+        run: node scripts/prerender.js
       # Stamp CSS/JS URLs with the commit, so browsers fetch the new code instead of a cached copy.
       - name: Cache-bust CSS and JS URLs
         run: node scripts/stamp.js "${GITHUB_SHA::8}"

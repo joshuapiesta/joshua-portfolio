@@ -144,6 +144,8 @@ In `profile.json`, the `"highlights"` block. Tiles with `"value": "auto"` update
 
 You only ever edit the `"label"` text or the `"since"` date.
 
+A tile with `"hackerOnly": true` (the coffee one) only shows in hacker view; recruiter view and print hide it. Swap it for a real number whenever you have one, e.g. `{ "label": "Pentest reports delivered", "value": "40+" }`.
+
 ### Change your photo
 
 Upload a square JPG or PNG (about 500×500) here → https://github.com/joshuapiesta/joshua-portfolio/upload/main/assets/img
