@@ -6,7 +6,7 @@
     "expires": null,
     "credentialId": "HTBCERT-5E7ABCFFAB",
     "verifyUrl": "https://www.credly.com/badges/a96f7946-7a53-428e-a449-7468e61e1b81/public_url",
-    "image": "",
+    "image": "assets/certs/cpts.png",
     "skills": [
       "Information Gathering",
       "Penetration Testing",
