@@ -4,7 +4,7 @@
     "issuer": "Hack The Box",
     "issued": "2026-10",
     "expires": null,
-    "credentialId": "a96f7946-7a53-428e-a449-7468e61e1b81",
+    "credentialId": "HTBCERT-5E7ABCFFAB",
     "verifyUrl": "https://www.credly.com/badges/a96f7946-7a53-428e-a449-7468e61e1b81/public_url",
     "image": "assets/certs/cpts.png",
     "skills": [
