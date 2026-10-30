@@ -1,4 +1,37 @@
 [
+    {
+    "title": "Certified Penetration Testing Specialist (CPTS)",
+    "issuer": "Hack The Box",
+    "issued": "2026-10",
+    "expires": null,
+    "credentialId": "a96f7946-7a53-428e-a449-7468e61e1b81",
+    "verifyUrl": "https://www.credly.com/badges/a96f7946-7a53-428e-a449-7468e61e1b81/public_url",
+    "image": "assets/certs/cpts.png",
+    "skills": [
+      "Information Gathering",
+      "Penetration Testing",
+      "Vulnerability Assessment",
+      "Active Directory Penetration Testing",
+      "Attacking CMS",
+      "Attacking Common Services",
+      "Attacking Windows & Linux",
+      "Authentication & Authorization Attacks",
+      "Blind SQL Injection",
+      "Bypassing File Upload Restrictions",
+      "Command Injection",
+      "Cross-Site Scripting",
+      "Enumeration",
+      "IDOR",
+      "Linux Privilege Escalation",
+      "Pivoting",
+      "Post-exploitation Enumeration",
+      "Vulnerability/Risk Reporting",
+      "Web Fuzzing",
+      "Web Proxy Usage",
+      "Windows Privilege Escalation",
+      "XML External Entity Injection"
+    ]
+  },
   {
     "title": "Practical Network Penetration Tester (PNPT)",
     "issuer": "TCM Security",
